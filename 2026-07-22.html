@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFS Daily Report — 2026-07-22</title>
+<style>
+  :root{
+    --brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;
+    --bg:#f5f6fb;--card:#ffffff;
+    --ink:#1c2130;--ink-body:#495061;--ink-muted:#6b7385;--ink-faint:#98a0b3;
+    --rule:#e9ebf2;--rule-soft:#f1f2f8;
+    --cash:#2fa36b;--fore:#7b68ee;--pay:#2f80e6;--rba:#e05a9c;--ar:#dd8a1c;--rec:#0fa3a3;
+    --ok:#2fa36b;--ok-soft:#e6f5ee;--warn:#c07d10;--warn-soft:#fbf1dc;
+    --sh-sm:0 1px 2px rgba(28,33,48,.05);
+    --sh-md:0 3px 10px rgba(28,33,48,.06),0 1px 2px rgba(28,33,48,.05);
+    --sh-lg:0 8px 24px rgba(28,33,48,.10);
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.5;font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%;overflow-wrap:break-word}
+  .wrap{max-width:680px;margin:0 auto;padding:34px 18px 64px}
+  svg{display:block}
+
+  .brand{display:inline-flex;align-items:center;gap:8px;font-size:11px;color:var(--brand-deep);text-transform:uppercase;letter-spacing:.15em;font-weight:800}
+  .brand .dot{width:8px;height:8px;border-radius:3px;background:var(--brand)}
+  h1{font-size:27px;font-weight:800;letter-spacing:-.025em;margin:11px 0 0;line-height:1.14}
+  .sub{font-size:13.5px;color:var(--ink-muted);margin-top:8px}
+
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:26px 0 8px}
+  .kpi{background:var(--card);border-radius:var(--r);padding:17px 18px;box-shadow:var(--sh-md)}
+  .kpi .top{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+  .kpi .ic{width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center}
+  .kpi .ic svg{width:16px;height:16px}
+  .kpi.a .ic{background:var(--ok-soft);color:var(--cash)}
+  .kpi.b .ic{background:#e7f0fd;color:var(--pay)}
+  .k-lbl{font-size:10px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+  .k-val{font-size:25px;font-weight:800;letter-spacing:-.02em;line-height:1}
+  .k-sub{font-size:11.5px;color:var(--ink-muted);margin-top:6px;line-height:1.35}
+
+  .sec{display:flex;align-items:center;gap:10px;margin:34px 0 6px}
+  .sec h2{font-size:16px;font-weight:800;letter-spacing:-.01em;margin:0}
+  .sec .cap{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.07em}
+
+  .work{list-style:none;margin:14px 0 0;padding:0;background:var(--card);border-radius:var(--r);box-shadow:var(--sh-md);overflow:hidden}
+  .work li{display:flex;gap:13px;align-items:flex-start;padding:14px 17px;border-top:1px solid var(--rule-soft)}
+  .work li:first-child{border-top:none}
+  .work .ic{width:30px;height:30px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+  .work .ic svg{width:16px;height:16px;stroke-width:2}
+  .work .c-cash{background:var(--ok-soft);color:var(--cash)}
+  .work .c-pay{background:#e7f0fd;color:var(--pay)}
+  .work .c-rec{background:#e0f5f5;color:var(--rec)}
+  .work .c-rba{background:#fbe8f2;color:var(--rba)}
+  .work .c-ar{background:#fbf0dc;color:var(--ar)}
+  .work .c-brand{background:var(--brand-soft);color:var(--brand-deep)}
+  .work .t{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.005em}
+  .work .d{font-size:13px;color:var(--ink-body);margin-top:2px;line-height:1.5}
+  .work .d b{color:var(--ink);font-weight:700}
+
+  .win{display:flex;gap:12px;background:linear-gradient(180deg,#f3f0ff,var(--brand-soft));border:1px solid #ddd6fb;border-radius:12px;padding:15px 16px;margin-top:14px}
+  .win .wic{width:32px;height:32px;border-radius:10px;background:#fff;color:var(--brand-deep);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:var(--sh-sm)}
+  .win .wic svg{width:18px;height:18px}
+  .win .wh{font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--brand-deep)}
+  .win p{font-size:13px;color:#3a3170;line-height:1.55;margin:3px 0 0}
+  .win p b{color:#241d52;font-weight:700}
+
+  .note{font-size:12.5px;color:var(--ink-muted);margin-top:24px;padding:13px 16px;background:var(--card);border-radius:12px;box-shadow:var(--sh-sm);display:flex;gap:10px;align-items:center}
+  .note svg{width:16px;height:16px;color:var(--ok);flex-shrink:0}
+
+  .footer{margin-top:32px;text-align:center;font-size:11px;color:var(--ink-faint);line-height:1.6}
+  @media (max-width:560px){.kpis{grid-template-columns:1fr}h1{font-size:23px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="brand"><span class="dot"></span>RFS Builders · Daily Report</div>
+    <h1>Today's work — cash &amp; daily operations</h1>
+    <div class="sub">Wednesday, July 22, 2026 · cash reconciled to the bank, updated end of day</div>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi a">
+      <div class="top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span><span class="k-lbl">Cash on hand</span></div>
+      <div class="k-val">$45,058.69</div>
+      <div class="k-sub">Citizens checking · end of day, after the 104 Child (Spillane) payment received today</div>
+    </div>
+    <div class="kpi b">
+      <div class="top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span><span class="k-lbl">Card balance</span></div>
+      <div class="k-val">$62,792.29</div>
+      <div class="k-sub">Capital One · reconciled today</div>
+    </div>
+  </div>
+
+  <div class="sec"><h2>Today's work</h2><span class="cap">Wednesday</span></div>
+  <ul class="work">
+
+    <li>
+      <span class="ic c-brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg></span>
+      <div><div class="t">Morning routine — completed</div><div class="d">The standing daily routine ran in full: emails swept and inbox cleared, bank feeds pulled and reconciled, workers' hours and project info logged, site photos filed to Drive, receipts entered to QuickBooks, and RBA documents processed.</div></div>
+    </li>
+
+    <li>
+      <span class="ic c-cash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+      <div><div class="t">Daily reconcile completed</div><div class="d">Citizens checking reconciled this morning at <b>$33,890.29</b>, with the Capital One card at <b>$62,792.29</b>. The <b>104 Child (Spillane)</b> payment of <b>$11,168.40</b> then landed this afternoon, bringing checking to <b>$45,058.69</b> end of day.</div></div>
+    </li>
+
+    <li>
+      <span class="ic c-cash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></span>
+      <div><div class="t">Cash-flow forecast rebuilt</div><div class="d">Re-anchored the forecast to the end-of-day balance after the 104 Child payment. The lowest point ahead is now <b>$18,519.06 on August 5</b> — <b>above</b> the $15,000 floor, where earlier today (before that payment landed) it had briefly dipped under. Main draws still ahead: the held <b>MGP Services</b> check ($7,500, clears July 31), Capital One's card minimum ($5,742.84), and early-August mortgage payments — all before counting further money owed to us (RBA/Andersen remittances and outstanding invoices).</div></div>
+    </li>
+
+    <li>
+      <span class="ic c-pay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+      <div><div class="t">City Parking Permit paid</div><div class="d">Processed the <b>$106.35</b> payment for the City Parking Permit.</div></div>
+    </li>
+
+    <li>
+      <span class="ic c-rec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <div><div class="t">Personal tax follow-up for the Line of Credit</div><div class="d">Followed up with Justine about the personal tax documents still needed for Rafael and Natalia for our Line of Credit request. She replied that she'd already sent a sheet over to Natalia to fill out so she can prepare their taxes. Also followed up with Rafael directly on the same.</div></div>
+    </li>
+
+    <li>
+      <span class="ic c-ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></span>
+      <div><div class="t">33 Brookvale — unknown balance under review</div><div class="d">Gathered information from BuilderTrend and Rafael's project sheet on the outstanding <b>$11,485.49</b> balance to work out what it relates to, so it can either be billed to the customer or corrected if it isn't actually owed. Still to be determined.</div></div>
+    </li>
+
+    <li>
+      <span class="ic c-ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.8L7 14.3"/></svg></span>
+      <div><div class="t">Overhead-rate calculator finalized (v3)</div><div class="d">Rebuilt the calculator on a source-verified pool cross-checked directly against the bank statements, correcting components that were understated in the first pass. Deployed behind a secure, access-controlled link — now live — for FD and Rafael to review together.</div></div>
+    </li>
+
+  </ul>
+
+  <div class="sec"><h2>Cash outlook</h2><span class="cap">Through August</span></div>
+  <div class="win">
+    <span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></span>
+    <div>
+      <div class="wh">Where cash goes from here</div>
+      <p>Starting from <b>$45,058.69</b> in checking (end of day): this week's subcontractor checks and next week's payroll clear as scheduled, the held <b>MGP Services</b> check ($7,500) clears July 31, and Capital One's card minimum ($5,742.84) plus early-August mortgage payments land the first week of August. That brings the projected low to <b>$18,519.06 on August 5</b> — comfortably above the $15,000 floor — before any money still owed to us (RBA/Andersen remittances, outstanding invoices) is counted. The <b>104 Child</b> payment received today is what lifted the outlook back above the floor.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+    <span><b>Needs FD input:</b> the overhead-rate calculator (v3) is bank-verified and finalized, now live behind a secure link for FD and Rafael to review together and confirm the rate.</span>
+  </div>
+
+  <div class="footer">RFS Builders · Daily report · figures reconciled to the bank, updated end of day July 22, 2026<br>github.com/rfsbuild/rfs-dailyreport</div>
+
+</div>
+</html>
