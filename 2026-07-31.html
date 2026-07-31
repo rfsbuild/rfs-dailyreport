@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFS daily report &middot; Friday, July 31, 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style>
+</head>
+<body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Friday, July 31, 2026 &middot; what got done, and where the cash stands</div></header>
+
+<h2>Today's work</h2><div class="rule"></div>
+<details class="proj"><summary><b>51 Cedar</b><span class="pill ok">4</span></summary><ul class="acts">
+<li>Corrected the countertop change order and sent it. The draft read $1,979.15; Llinkk quoted $13,018.13 against a $12,500.00 allowance, so only the $518.13 overage is billable, at the standard 15% markup &mdash; <b>$595.85</b>. That is $1,383.30 less than the draft would have charged. <b>Email sent to Paula.</b></li>
+<li>Emailed Llinkk to book the countertop template for <b>Monday, August 10</b>.</li>
+<li>Followed up with <b>Quinn at JB Sash</b> on the door delivery date.</li>
+<li>Emailed the client about the ceiling height for the second-floor hallway.</li>
+</ul></details>
+<details class="proj"><summary><b>70 Robin</b><span class="pill ok">6</span></summary><ul class="acts">
+<li>Sent <b>Bob</b> the drain recommendation: keep a regular drain under the tub rather than removing the linear drain, since without one a leak reaches the kitchen below. Rough-in is August 12.</li>
+<li>Emailed <b>Danny at South Shore</b> about the fireblocking and got it confirmed &mdash; their team is doing it, <b>fire blocking September 8, insulation from September 17</b>. Replied to thank him; <b>Rafael</b> confirmed the BuilderTrend dates match.</li>
+<li>Requested the Monday site meeting on Basecamp for <b>Rafael's</b> 1:30&ndash;2:00 window, on the hallway bathroom toilet and sink plumbing.</li>
+<li>Confirmed the window delivery for <b>Tuesday, August 11</b> against the project spreadsheet.</li>
+<li>Emailed <b>Bob</b> the cabinet sequence &mdash; vanity, then kitchen, then the remaining cabinets &mdash; so the client can pass the priority to the cabinet company.</li>
+<li>Emailed <b>Petersen</b> for the waterproofing products for the master shower, the master bathroom floor and the hallway bathroom floor.</li>
+</ul></details>
+<details class="proj"><summary><b>RBA / Andersen</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Reconciled the weekly remittance and followed up with Andersen on the amounts that did not agree.</li>
+<li>Checked next week's schedule.</li>
+</ul></details>
+<details class="proj"><summary><b>Financial control</b><span class="pill ok">3</span></summary><ul class="acts">
+<li>Reconciled the bank. Checking closed at <b>$63,860.27</b>, tying to the cent.</li>
+<li>Corrected two errors in the cash forecast: a $16,000.00 Andersen deposit still on the books after the real $18,940.00 arrived, and a crew check counted as cleared before it was.</li>
+<li>Extended the cash forecast from one week to two, through August 14.</li>
+</ul></details>
+<details class="proj"><summary><b>Office &amp; admin</b><span class="pill ok">4</span></summary><ul class="acts">
+<li>Met with <b>Guilherme</b> and <b>Rafael</b>, and worked the meeting transcripts into a summary.</li>
+<li>Cleaned up the office@ mailbox.</li>
+<li>Asked <b>Rafael</b> which invoices go out next week, to build the weekly report and next week's forecast on his list.</li>
+<li>Started the trip cost report &mdash; mockup built, to finish next week with the real figures so <b>Rafael</b> can track his spending through the trip.</li>
+</ul></details>
+
+<h3>Waiting on someone else</h3>
+<details class="proj"><summary><b>Blocked, with who</b><span class="pill ok">5</span></summary><ul class="acts">
+<li>The Monday 70 Robin meeting time &mdash; The 1:30&ndash;2:00 slot is contested &mdash; one attendee is free only after 3pm, and another is asking whether Helios needs to be there.</li>
+<li><b>Rafael</b> &mdash; next week's invoice list &mdash; For the weekly report and next week's forecast.</li>
+<li><b>Rafael</b> &mdash; trip spend to date &mdash; For the trip cost report.</li>
+<li><b>Petersen</b> &mdash; the waterproofing products &mdash; For 70 Robin.</li>
+<li><b>LLO Electrician</b> &mdash; a date for 43 Haverford &mdash; Still outstanding.</li>
+</ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile"><div class="k">Checking today</div><div class="v">$63,860.27</div><div class="sub">reconciled Friday, ties to the cent</div></div>
+<div class="tile"><div class="k">Low point</div><div class="v">$45,098.91</div><div class="sub">tomorrow, Sat Aug 1</div></div>
+<div class="tile"><div class="k">Clear of the floor</div><div class="v">$30,098.91</div><div class="sub">at the low point</div></div>
+<div class="tile"><div class="k">Two weeks out</div><div class="v">$57,561.79</div><div class="sub">Fri Aug 14</div></div>
+</div>
+<div class="outlook"><p>Checking closed at <b>$63,860.27</b>. The low point of the whole two-week window is <b>tomorrow</b> at <b>$45,098.91</b> &mdash; <b>$30,098.91 clear of the $15,000 floor</b> &mdash; and the path climbs from there. <b>Tuesday, August 4 is the high point at $68,332.84</b>, when the 51 Cedar payment lands alongside the 26 Lee deposit. The window closes on August 14 at <b>$57,561.79</b>, higher than it started. <b>No day in the window goes below the floor.</b></p><p class="muted">For contrast, last Friday's report projected cash crossing the floor around August 1 and bottoming at &minus;$6,013 on August 7. That is no longer the picture: 70 Robin's $44,800.06 landed Tuesday, Andersen came in at $18,940.00, and four more invoices were paid across the week.</p></div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<details class="proj"><summary><b>Emails you send from office@ and billing@ are now visible in one place</b></summary><div class="syswhy">Anything sent from those addresses to someone outside RFS used to be invisible unless an RFS address happened to be copied on it, so a day's outgoing work could not be accounted for. A rule now copies every outgoing message from them into your main mailbox. Tested and arriving. The carpentry Gmail account sits outside the company system and is RBA-only, so that one still needs its own fix.</div></details>
+<details class="proj"><summary><b>Outgoing email can be verified after all</b></summary><div class="syswhy">Yesterday's report said it could not be. That came from one badly formed search rather than a real limit &mdash; the search that does work returns 233 messages. Nothing gets written down as a limitation now until a second way of checking has been tried.</div></details>
+<details class="proj"><summary><b>The morning sweep is about twice as fast</b></summary><div class="syswhy">It used to re-read the whole day from scratch every time, eleven to twelve minutes. It now picks up where it last stopped. That is what makes an automatic 8am briefing practical rather than something started by hand. A busy afternoon still runs longer, because the time tracks how much actually came in.</div></details>
+<details class="proj"><summary><b>Notes you write when closing something off now get acted on</b></summary><div class="syswhy">Four were picked up today and two became real changes: the 104 Child payment went into the cash forecast, and the 26 Lee deposit was confirmed as already there. A review of how the briefing is assembled also found why the same things kept reappearing &mdash; it had no way of knowing what was already on the list. Both fixes start Monday.</div></details>
+<details class="proj"><summary><b>A health check on the record-keeping came back clean</b></summary><div class="syswhy">Two hundred stored notes, all indexed, all filed, no duplicates. Three need a decision: one file still describes a task system the company stopped using, one carries credit-card balances that have since moved, and the master tracker is growing faster than it is being tidied.</div></details>
+
+<div class="note">As of Friday, July 31, 2026 &middot; checking reconciled at $63,860.27</div>
+</div></body></html>
