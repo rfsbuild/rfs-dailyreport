@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFS daily report &middot; Tuesday, August 4, 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style>
+</head>
+<body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Tuesday, August 4, 2026 &middot; what got done, and where the cash stands</div>
+<div class="sub">Alice is back from leave and has project management again, so this covers financial control, payroll and RBA.</div></header>
+
+<h2>Today's work</h2><div class="rule"></div>
+<details class="proj"><summary><b>Financial control</b><span class="pill ok">6</span></summary><ul class="acts">
+<li>Ran the morning routine end to end: both bank exports in, both accounts reconciled, and the day's cash checked against what the projection called for.</li>
+<li>Both accounts tie to <b>$0.00</b>. Checking closed at <b>$63,973.82</b>, down <b>$1,849.29</b> on the day, and the Capital One balance ties at <b>$63,820.49</b>, up <b>$307.16</b>.</li>
+<li>The last <b>$88.00</b> of the tie-out was identified as a personal charge of Rafael's from the day before, still pending at the bank &mdash; which took the reconciliation to nil rather than leaving a figure unexplained.</li>
+<li>Paid <b>$8,000.00</b> to <b>Capital One</b> and put it in the projection. It covers Wednesday's <b>$5,742.84</b> minimum in full, so that minimum came out of the window instead of sitting alongside the payment &mdash; only <b>$2,257.16</b> of the $8,000 is new cash out.</li>
+<li>Removed a duplicated <b>Sunrun</b> charge of <b>$225.14</b> from the projection, after proving against sixteen months of billing that only one payment is due and it had already posted.</li>
+<li>The day's cash came in <b>$2,729.68</b> under the projection, <b>4.09%</b>, and all of it is timing: <b>51 Cedar</b>'s <b>$10,233.41</b> did not arrive on the date Buildertrend gave for it, against four payments that have not cleared yet.</li>
+</ul></details>
+<details class="proj"><summary><b>Payroll &amp; subs</b><span class="pill ok">4</span></summary><ul class="acts">
+<li>Ran payroll for the week ending Saturday, August 1 and paid it the same day: <b>13</b> employees, checks <b>#3850&ndash;#3862</b>, net <b>$15,703.24</b>. It ties to the cent &mdash; gross <b>$15,613.76</b> plus <b>$175.00</b> of gas, less the one <b>$85.52</b> deduction.</li>
+<li><b>Ederson Oliveira</b>'s <b>$85.52</b> work-belt deduction landed inside check <b>#3854</b> &mdash; gross <b>$1,113.75</b> plus <b>$25.00</b> gas less the $85.52 gives the <b>$1,053.23</b> net &mdash; so it was confirmed in the check itself, not just marked as done.</li>
+<li>The run came in <b>$3,644.75</b> below last week's <b>$19,347.99</b> and <b>$1,521.06</b> under what the projection was carrying for it. Flat rate held on all eleven hourly workers with no overtime premium anywhere, and the roster is unchanged at 13.</li>
+<li>Printed two subcontractor checks: <b>#3863</b> to <b>South Shore</b> for <b>$4,516.50</b> against <b>70 Robin</b> insulation, and <b>#3864</b> to <b>SkyTech</b> for <b>$1,540.00</b> against <b>51 Cedar</b> electrical. Both are in the projection for Friday.</li>
+</ul></details>
+<details class="proj"><summary><b>RBA</b><span class="pill ok">6</span></summary><ul class="acts">
+<li>Finished the RBA crew schedule for next week.</li>
+<li>Updated the RBA payment sheet from Andersen's replies to the outstanding follow-ups, including the reconciliation of the latest payment.</li>
+<li>Checked that sheet against the bank: <b>31</b> Andersen deposits through July 31 come to <b>$531,937.22</b>, the sheet reads <b>$531,278.48</b>, so there is <b>$658.74</b> to find in it. The latest deposit itself is <b>$18,940.00</b>, and the sheet's four-week average of <b>$19,319.85</b> matches what the forecast uses.</li>
+<li>Settled the RBA overhead rate at <b>41.3586%</b> &mdash; the full-year pricing figure, measured from the overhead calculator rather than chosen, with the owners' and personal lines counted in.</li>
+<li>Measured what restating 2026 at that rate does <i>before</i> writing it: profit <b>$91,318.11 &rarr; $26,480.29</b>, margin <b>17.69% &rarr; 5.13%</b>, and jobs that lose money <b>16 &rarr; 50</b>. Nothing has been restated yet.</li>
+<li>Read FD's RBA sheet line by line and confirmed our own profit engine already uses their formula &mdash; contract plus change order, labour at 11%, overhead on revenue &mdash; so the rate is the only thing that needs to change.</li>
+</ul></details>
+<details class="proj"><summary><b>Email &amp; records</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Cleared out the <b>finance@</b> mailbox.</li>
+</ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile"><div class="k">Checking today</div><div class="v">$63,973.82</div><div class="sub">both accounts reconciled to $0.00</div></div>
+<div class="tile"><div class="k">Paid to Capital One</div><div class="v">$8,000.00</div><div class="sub">covers Wednesday's minimum in full</div></div>
+<div class="tile"><div class="k">Low point</div><div class="v">$57,545.07</div><div class="sub">today, Tue Aug 4</div></div>
+<div class="tile"><div class="k">Clear of the floor</div><div class="v">$42,545.07</div><div class="sub">at the low point</div></div>
+</div>
+<div class="outlook"><p>Checking stands at <b>$63,973.82</b> with both accounts reconciled to <b>$0.00</b>, down <b>$1,849.29</b> on the day. <b>The low point of the two-week window is today itself, at $57,545.07</b> &mdash; the <b>$8,000.00</b> paid to Capital One and the first of the payroll checks all come out today. From there the balance recovers, and the window ends on <b>Friday, August 14 at $62,627.23</b>. At the low point there is still <b>$42,545.07 clear of the $15,000 floor</b>, and <b>no day in the window goes below it</b>.</p><p class="muted">The window closes $1,346.59 below where checking sits today, and payroll is most of the reason: all <b>$15,703.24</b> of last week's checks clear inside it, and next week's run is carried at <b>$17,224.30</b>. Three payments are still expected in and are already counted &mdash; <b>299 Ocean $12,982.19</b> and <b>104 Child $4,042.25</b> on Wednesday, and <b>43 Haverford $4,210.67</b> on Friday, that last one on an assumed date rather than a confirmed one, so it will be moved rather than dropped if it slips. <b>51 Cedar $10,233.41</b> did not arrive on the date Buildertrend gave and is held in place, not removed. The two RBA deposits inside the window are held at a deliberately conservative <b>$16,000</b> each. Alongside checking, the two Home Depot cards stand at <b>$13,596.11</b> and <b>$4,068.59</b>.</p></div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<details class="proj"><summary><b>Payroll now sits in the cash projection as one line per check, not one weekly lump</b></summary><div class="syswhy">Thirteen checks were written for the week and they do not all clear on the same day, so carrying the whole week as a single amount on a single date made the days either side of payday read wrong in both directions. Each check is now its own line, placed on the day that check has actually been clearing across the last three runs — the office checks on the day of payment, the crew in bulk on the Friday, and two consistent stragglers the Monday after. The thirteen lines add up to the recorded net of $15,703.24 to the cent, so the projection and the payroll record cannot drift apart.</div></details>
+<details class="proj"><summary><b>A safety limit now sits in front of the overhead rate before it can reach any profit figure</b></summary><div class="syswhy">The rate is stored as a fraction — 0.36 for 36%. Entered as 36 it would have been stored as a rate a hundred times too large and would have silently re-scored every RBA job, moving the profit figures FD and Rafael read. Nothing stopped that on the way in. A range check now does, and it had to be built per figure rather than as one blanket rule: the labour burden multiplier is legitimately above 1, so a single range would have rejected a valid figure and accepted a damaging one. 114 automated checks pass, including ones written for exactly this mistake.</div></details>
+<details class="proj"><summary><b>The overhead rate is now a measurement on a schedule instead of a judgement call</b></summary><div class="syswhy">It comes from the overhead calculator, on the same basis every time, re-measured every three months — next due early November. Its RBA revenue input was checked against the bank and ties to the cent: $512,997.22 of Andersen deposits through July 24, the date the calculator declares for itself. The difference of $18,281.48 against the payment sheet turned out to be a date, not a disagreement — one deposit of $18,940.00 landed on July 31, after the calculator's cut-off. Refreshing revenue without refreshing the overhead pool would push the rate down for no real reason, so both sides move together at the quarterly re-measure or not at all.</div></details>
+<details class="proj"><summary><b>Job profit stops where the hours stop, and the reason is a handover between two uploads</b></summary><div class="syswhy">Every one of the 3,215 time entries carries its job code, and 9,574.72 hours are costed to jobs for 2026 — but the job side of that data was last loaded on July 17. The weekly payroll upload receives the very same job codes and drops them, so the hours have to be loaded a second time by hand, and three weeks of that has not happened. Three active jobs therefore carry revenue with no hours against them, $25,925.00 of it, which makes their profit read high. One export closes today's gap; keeping the job code on the weekly upload closes it for good.</div></details>
+<details class="proj"><summary><b>New York Life's monthly drafts were confirmed genuine against records independent of our own</b></summary><div class="syswhy">The four $1,000 drafts a month were checked against the old accounting register and against the bank's own feed exports — both independent of our ledger. Both show four a month, in same-day pairs, continuously since October 2024, with the register's running balance tying across every row. So the overhead figure stands unchanged and nothing was removed. The finding that does need work runs the other way: our own 2025 records hold only two of the four each month, understating that year by about $24,000, and will be corrected against the register.</div></details>
+
+<div class="note"><b>Open items:</b>
+<div style="margin-top:5px">Restating 2026 RBA profit at <b>41.3586%</b> takes it from <b>$91,318.11</b> to <b>$26,480.29</b>, the margin from <b>17.69%</b> to <b>5.13%</b>, and the jobs that lose money from <b>16</b> to <b>50</b>. Nothing has been restated: the three missing weeks of hours load first, so no job is scored without its labour. Confirmation on the restatement once those hours are in.</div>
+<div style="margin-top:5px"><b>RA483 Cashman</b> was cancelled, and the RBA records still carry it as active with <b>$3,125.00</b> of revenue and no labour against it, inside the figures above. It needs marking cancelled before any per-job profit goes out.</div>
+<div style="margin-top:5px">FD's RBA sheet currently carries January through April &mdash; <b>65</b> jobs, <b>$269,598.55</b>. Ours carries <b>118</b> jobs and <b>$516,282.35</b>. The two books can be compared once May onward is entered.</div>
+</div>
+
+<div class="note">As of Tuesday, August 4, 2026 &middot; both accounts reconciled, checking at $63,973.82</div>
+</div></body></html>
