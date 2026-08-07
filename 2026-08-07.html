@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFS daily report &middot; Friday, August 7, 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style>
+</head>
+<body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Friday, August 7, 2026 &middot; what got done, and where the cash stands</div></header>
+
+<h2>Today's work</h2><div class="rule"></div>
+<details class="proj"><summary><b>Morning routine</b><span class="pill ok">4</span></summary><ul class="acts">
+<li>Reconciled both accounts, and both tie to <b>$0.00</b>. Checking stands at <b>$83,947.25</b>, up <b>$10,712.98</b> on the day from <b>$73,234.27</b>, and the Capital One balance ties at <b>$57,318.29</b>.</li>
+<li>Corrected the crews' hours in QuickBooks Time.</li>
+<li>Uploaded the crews' photos to Drive.</li>
+<li>Entered receipts into QuickBooks.</li>
+</ul></details>
+<details class="proj"><summary><b>Bookkeeping</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Brought QuickBooks up to date from July forward, and the books now match the sheet. The August transaction detail runs through today across <b>23 accounts</b> carrying activity: the checking account, both debit cards, five Capital One cards and the fuel card.</li>
+</ul></details>
+<details class="proj"><summary><b>Financial control</b><span class="pill ok">4</span></summary><ul class="acts">
+<li>Getting the checking side to <b>$0.00</b> took one adjustment. A <b>$2,868.85</b> truck maintenance charge &mdash; overhead, not a job cost &mdash; was already held against the balance on <b>August 5</b> and only posted today, so counting it a second time would have deducted the same money twice. The system reached the same conclusion independently and named hold timing as the cause.</li>
+<li>Measured the day against the projection it actually had, taken from the system's own accuracy record. <b>Today</b> was projected to end at <b>$67,725.23</b> and stands at <b>$83,947.25</b> &mdash; <b>$16,222.02 ahead</b>. The RBA deposit landed at <b>$19,730.02</b> against the <b>$16,000.00</b> carried in the projection, and the reconciled figure is taken before the day's outgoing payments have left the account.</li>
+<li>Corrected three errors in the cash projection, all one root cause &mdash; a payment modelled at a different amount from the one that actually posts can never be matched off, so it sits on the books after the money has already moved. That RBA deposit was still shown as expected today after it had landed and been counted; a travel accrual was carried twice; and payroll cheque <b>#3854</b> for <b>$1,053.23</b> was marked as cashed when it has not been. The projected close on <b>August 14</b> moved from <b>$78,342.41</b> to <b>$62,535.96</b> &mdash; <b>$15,806.45</b> lower, which is the true figure rather than a better one.</li>
+<li>Repriced the travel allowance carried in the projection from <b>$6,000.00</b> to <b>$4,000.00</b> over the same period, on Rafael's own estimate &mdash; <b>$160.00</b> a day rather than <b>$193.55</b>. That returns <b>$268.40</b> to the window and brings the projected close to <b>$63,052.12</b>.</li>
+</ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile"><div class="k">Checking today</div><div class="v">$83,947.25</div><div class="sub">both accounts reconciled to $0.00</div></div>
+<div class="tile"><div class="k">Banked</div><div class="v">$19,730.02</div><div class="sub">RBA weekly deposit</div></div>
+<div class="tile"><div class="k">Low point</div><div class="v">$62,804.36</div><div class="sub">Fri Aug 14, the end of the window</div></div>
+<div class="tile"><div class="k">Clear of the floor</div><div class="v">$47,804.36</div><div class="sub">at the low point</div></div>
+</div>
+<div class="outlook"><p>Checking stands at <b>$83,947.25</b> with both accounts reconciled to <b>$0.00</b>, up <b>$10,712.98</b> on the day from <b>$73,234.27</b> after the RBA deposit of <b>$19,730.02</b> landed. <b>Today's balance is the highest point of the whole window</b> &mdash; every projected day-end from here is below it, the nearest being today's own projected close at <b>$71,528.84</b> &mdash; so the outlook from here is a steady easing down rather than a climb. The <b>low point is the last day of the window, Friday, August 14 at $62,804.36</b>, still <b>$47,804.36 clear of the $15,000 floor</b>. <b>No day in the window goes below the floor.</b></p><p class="muted">The window closes $21,142.89 below where the balance sits today, and payroll is most of the reason: <b>$3,401.23</b> of last week's crew cheques are still to clear, and next week's run is carried at <b>$17,224.30</b>. One payment is expected in and is already counted &mdash; <b>43 Haverford $4,210.67</b> &mdash; and it sits on an assumed date rather than a confirmed one, so it will be moved rather than dropped if it slips. The one RBA deposit left inside the window, on Friday, August 14, is held at a deliberately conservative $16,000.00.</p></div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<details class="proj"><summary><b>A cheque that had not been cashed could be marked as paid because another cheque in the same run was a few dollars away</b></summary><div class="syswhy">The cash projection clears an expected payment when it finds a bank line of about the same amount on about the same day, allowing a margin of half a percent. Payroll cheques written in the same run are routinely closer together than that. Cheque #3854 for $1,053.23 was cleared against cheque #3860 for $1,057.93 &mdash; $4.70 apart against a $5.27 margin &mdash; while #3854 was still uncashed. The money leaves the account either way, so the projected closing figure never moved and nothing looked wrong; what disappeared was the record that the payment was still outstanding, which is exactly the kind of error that survives a spot check. The projection now refuses to clear anything carrying a cheque number unless the bank line carries that same number, which the system already required elsewhere and simply was not applying here.</div></details>
+<details class="proj"><summary><b>Yesterday's report reached the site only after a stalled build was restarted, so a published file is now checked on the page rather than on the push</b></summary><div class="syswhy">The report is put live by sending the file to the hosting service, which then rebuilds the site. Yesterday's rebuild started and never finished, so the file was on the server and the page still could not be opened. Restarting the build cleared it in 22 seconds, against the 21 hours it had been stuck. The lesson is that sending a file is not the same as publishing it, so the check that now runs after every report is not whether the file was sent but whether the page itself serves the right content &mdash; verified this time by fetching the live page and counting the figures in it, not by trusting a success message.</div></details>
+
+<div class="note">As of Friday, August 7, 2026 &middot; both accounts reconciled, checking at $83,947.25</div>
+</div></body></html>
