@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFS daily report &middot; Monday, August 10, 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style>
+</head>
+<body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Monday, August 10, 2026 &middot; what got done, and where the cash stands</div></header>
+
+<h2>Today's work</h2><div class="rule"></div>
+<details class="proj"><summary><b>Morning routine</b><span class="pill ok">4</span></summary><ul class="acts">
+<li>Reconciled both accounts. Checking stands at <b>$77,011.06</b> and ties to <b>$0.00</b>, down <b>$6,936.19</b> since Friday's <b>$83,947.25</b> as three days of payments posted together. The Capital One balance is reconciled at <b>$58,784.13</b>, up <b>$1,465.84</b> over the same three days.</li>
+<li>Checked the crews' hours for Friday and Saturday, and asked Rafael to review them.</li>
+<li>Uploaded both teams' Friday and Saturday photos to Drive.</li>
+<li>Entered receipts into QuickBooks.</li>
+</ul></details>
+<details class="proj"><summary><b>Financial control</b><span class="pill ok">5</span></summary><ul class="acts">
+<li>Getting the checking side to <b>$0.00</b> took one exclusion. A <b>$26.03</b> charge sat in the records twice &mdash; once under a generic description dated <b>August 6</b> and once under the merchant's own name on <b>August 7</b> &mdash; and the generic one is missing from today's bank file, which is what proves it was the unposted half of the same charge. Excluding it, <b>$83,947.25</b> less <b>$6,962.22</b> of posted payments lands on <b>$77,011.06</b> with nothing left over.</li>
+<li>Corrected the figure the cash projection starts from. The same <b>$4,627.91</b> &mdash; a mortgage payment of <b>$4,288.68</b> and a loan payment of <b>$339.23</b> &mdash; had been taken out twice, once by dropping the payments from the expected list and once from the bank balance itself, so every projected day-end was reading that much low. The projected close for <b>Friday, August 14</b> now stands at <b>$63,276.60</b>.</li>
+<li>Measured the day against the projection it actually had, taken from the system's own accuracy record. <b>Today</b> was projected to end at <b>$68,280.96</b> and stands at <b>$77,011.06</b> &mdash; <b>$8,730.10 ahead</b>, or <b>12.79%</b>. That is mostly <b>$13,287.76</b> of payments the projection expected to clear that have not left the account yet, set against <b>$4,210.67</b> of expected money that did not arrive.</li>
+<li>Recorded <b>$14,275.66</b> of collected money against the two jobs it belongs to. One <b>August 4</b> deposit covered two invoices on two different clients &mdash; <b>51 Cedar $10,233.41</b> and <b>104 Child $4,042.25</b> &mdash; so it could not be filed the usual way, one deposit to one job, and until now neither job's record showed the money at all.</li>
+<li>Confirmed the trailer loan is paid for August. Check <b>#3848</b> for <b>$662.31</b> cleared on <b>August 3</b> and covers two instalments at once, <b>$323.08</b> plus <b>$339.23</b>, so the projection correctly carries no payment for it.</li>
+</ul></details>
+<details class="proj"><summary><b>RBA</b><span class="pill ok">4</span></summary><ul class="acts">
+<li>Confirmed this week's schedule is unchanged.</li>
+<li>Worked on next week's schedule across QuickBooks, Drive, QuickBooks Time and Slack.</li>
+<li>Updated the extra-labour approvals in the control sheet.</li>
+<li>Answered the emails from the past days about missing documents &mdash; went back to the team for the paperwork and followed up with RBA on each one.</li>
+</ul></details>
+<details class="proj"><summary><b>Billing</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Cleared the billing inbox: invoices entered on the sheet, and the subs who sent incorrect invoices chased for corrected ones.</li>
+</ul></details>
+<details class="proj"><summary><b>Line of credit</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Pulled together the answers Citizens asked for and filled the schedule of business debt as of <b>July 31, 2026</b> &mdash; four vehicle loans and three credit-card accounts, each loan payment traced to the bank's own records rather than to a stored amount. The Associated Bank payment is confirmed at <b>$885.59</b> a month, which closes the one figure the July schedule had left open.</li>
+<li>Left the four loans' balances, rates and maturity dates blank rather than estimated. Those come off the lender statements and go in before anything is signed; the bank asked for an unsigned draft.</li>
+</ul></details>
+<details class="proj"><summary><b>Payroll</b><span class="pill ok">4</span></summary><ul class="acts">
+<li>Updated the crews' pay information for this week's run.</li>
+<li><b>Two raises, starting with tomorrow's checks:</b> Samuel Teixeira and Gerson each move up <b>$1.00 an hour</b>. The new rates apply from the Tuesday, August 11 run onward.</li>
+<li><b>New Saturday rate, starting with Saturday, August 8:</b> anyone who works a Saturday earns an extra <b>$1.00 an hour on that day's hours only</b>. It is a flat dollar on Saturday hours, not an overtime multiplier, and the rest of the week is unchanged. Because it covers the Saturday just worked, it is <b>on tomorrow's checks</b>, added by hand this once; the payroll calculation is being updated tomorrow to apply it automatically from then on.</li>
+<li>A <b>$50.00</b> reimbursement goes on tomorrow's run &mdash; a Helios gift bought on a personal card.</li>
+</ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile"><div class="k">Checking today</div><div class="v">$77,011.06</div><div class="sub">reconciled, ties to $0.00</div></div>
+<div class="tile"><div class="k">Capital One</div><div class="v">$58,784.13</div><div class="sub">reconciled, up $1,465.84 since Friday</div></div>
+<div class="tile"><div class="k">Low point</div><div class="v">$63,276.60</div><div class="sub">Fri Aug 14, the end of the window</div></div>
+<div class="tile"><div class="k">Clear of the floor</div><div class="v">$48,276.60</div><div class="sub">at the low point</div></div>
+</div>
+<div class="outlook"><p>Checking stands at <b>$77,011.06</b>, reconciled and tying to <b>$0.00</b>, down <b>$6,936.19</b> since Friday's <b>$83,947.25</b> after three days of payments posted together. <b>Today's balance is still the highest point of the whole window</b> &mdash; every projected day-end from here is below it, the nearest being today's own projected close at <b>$68,753.20</b> &mdash; so the outlook from here is a steady easing down rather than a climb. The <b>low point is the last day of the window, Friday, August 14 at $63,276.60</b>, still <b>$48,276.60 clear of the $15,000 floor</b>. <b>No day in the window goes below the floor.</b></p><p class="muted">The window closes $13,734.46 below where the balance sits today, and payroll is most of the reason: next week's run is carried at <b>$17,224.30</b>, and one crew cheque from the August 1 week, <b>$1,100.71</b>, has yet to clear. Two sub payments printed on August 4 &mdash; <b>$4,516.50</b> and <b>$1,540.00</b> &mdash; are also outstanding. One payment is expected in and is already counted &mdash; <b>43 Haverford $4,210.67</b> &mdash; on a date that is an assumption and has now been missed twice, so it will be moved rather than dropped if it slips again. The one RBA deposit left inside the window, on Friday, August 14, is held at a deliberately conservative $16,000.00. Rafael's travel is carried at <b>$160.00 a day</b>, <b>$800.00</b> inside this window.</p></div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<details class="proj"><summary><b>A payment that had already left the account was being subtracted twice, so every projected day-end read $4,627.91 low</b></summary><div class="syswhy">The cash projection starts from the balance typed off the bank screen each morning, and each payment it expects is either matched against a real bank line or carried forward to the next day. Two payments &mdash; a $4,288.68 mortgage and a $339.23 loan &mdash; were dropped from the expected list because they had posted, and the same amounts were also taken off the typed balance, so the money came out twice. The direction was cautious, which is exactly why it was easy to miss: the figures looked worse than reality rather than better, and no day dropped anywhere near the floor either way. The starting figure has been reset to the bank's own balance, the whole five-day chain rebuilt from scratch, and then checked again after the system restarted &mdash; a correction that does not survive a restart has not really been made. This report will not build at all if the projection's starting figure and the bank balance disagree by so much as a cent.</div></details>
+<details class="proj"><summary><b>The bank's own wording carries the card number, so spend can be split by card without anyone tagging it by hand</b></summary><div class="syswhy">Every debit-card line on the checking statement ends in four digits, and those four digits say which card was used. Tested against QuickBooks' own account assignment on six transactions, it matched on all six &mdash; the five charges ending 0126 are all filed to one card in the books, and the one ending 2688 to the other. Until now, separating spend by card meant somebody remembering to label each line, which is slow and quietly goes wrong whenever a line is missed. It can now be read straight off the bank data. One caution is built in: a four-digit group that appears only once can be a store number rather than a card, so only a number that recurs is treated as one.</div></details>
+
+<div class="note">As of Monday, August 10, 2026 &middot; both accounts reconciled, checking at $77,011.06</div>
+</div></body></html>
