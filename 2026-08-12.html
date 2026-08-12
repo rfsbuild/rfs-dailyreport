@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFS daily report &middot; Wednesday, August 12, 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style>
+</head>
+<body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Wednesday, August 12, 2026 &middot; what got done, and where the cash stands</div></header>
+
+<h2>Today's work</h2><div class="rule"></div>
+<details class="proj"><summary><b>Morning routine</b><span class="pill ok">6</span></summary><ul class="acts">
+<li>Reconciled both accounts. Checking stands at <b>$68,848.52</b> and the Capital One balance at <b>$56,311.13</b>.</li>
+<li>Fixed the crews' hours in QuickBooks Time.</li>
+<li>Uploaded the crews' photos to Drive.</li>
+<li>Entered receipts into QuickBooks.</li>
+<li>Checked the mail at Rafael's place and at the office.</li>
+<li>Checked the schedule for this week and the weeks after it.</li>
+</ul></details>
+<details class="proj"><summary><b>Billing</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Sent <b>299 Ocean invoice 0009</b>, the final invoice, <b>$10,279.50</b>, to Charles Leveroni.</li>
+</ul></details>
+<details class="proj"><summary><b>Subcontractors</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Followed up with the subcontractors whose checks are printed and waiting to be collected &mdash; <b>#3880 Oxbow Electrical $11,200.00</b> for the 70 Robin electrical work and <b>#3879 LLO Electrician $700.00</b> for the 43 Haverford electrical work, <b>$11,900.00</b> together.</li>
+<li>Followed up on the South Shore Spray Foam insulation for <b>70 Robin</b>. They are billing <b>50%</b> of their contract value as a down payment, so Rafael was asked to confirm the standard down payment before it is processed. Guilherme puts the start of the insulation work there about a month out.</li>
+</ul></details>
+<details class="proj"><summary><b>Pay</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Spoke to Gerson and Samuel about their raises.</li>
+</ul></details>
+<details class="proj"><summary><b>Getting on top of the backlog</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Started working through the checked list of everything left behind: <b>12</b> of the <b>91</b> items that need a decision are answered, out of <b>214</b> in total.</li>
+</ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile"><div class="k">Checking today</div><div class="v">$68,848.52</div><div class="sub">reconciled</div></div>
+<div class="tile"><div class="k">Capital One</div><div class="v">$56,311.13</div><div class="sub">reconciled</div></div>
+<div class="tile"><div class="k">Low point</div><div class="v">$10,469.64</div><div class="sub">Thu Aug 27</div></div>
+<div class="tile"><div class="k">Below the floor</div><div class="v">$4,530.36</div><div class="sub">at the low point</div></div>
+</div>
+<div class="outlook"><p>Checking stands at <b>$68,848.52</b>, down <b>$2,864.53</b> from yesterday's <b>$71,713.05</b>, and the Capital One balance came down <b>$3,263.25</b> to <b>$56,311.13</b>. <b>Today's balance is the highest point of the whole window</b> &mdash; every projected day-end from here is below it, the nearest being today's own close at <b>$58,841.80</b>. <b>Three days near the end of the month now sit below the $15,000 floor:</b> <b>$11,297.53</b> on Tuesday, August 25, <b>$10,629.64</b> on Wednesday, August 26, and <b>$10,469.64</b> on Thursday, August 27. The lowest is <b>Thursday, August 27 at $10,469.64</b>, which is <b>$4,530.36 under the floor</b>.</p>
+<p class="muted">The window runs to <b>August 31</b> and carries <b>$96,569.55</b> going out against <b>$52,210.67</b> coming in, across <b>62</b> dated items. Two more payroll weeks are in it, each priced at <b>$19,251.44</b>, which is what last week's run actually came to. The three RBA deposits inside the window are each held at a deliberately conservative <b>$16,000.00</b>. Rafael's travel is carried at <b>$160.00 a day</b>, <b>$3,040.00</b> across the <b>19</b> days of it that fall inside the window. <b>The 70 Robin invoice 0004, $27,606.55, is not counted anywhere in these figures</b>, because it has not gone out yet &mdash; it is more than six times the shortfall at the low point, so sending and collecting it is what settles those three days.</p></div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<details class="proj"><summary><b>The financial files now back themselves up on their own</b></summary><div class="syswhy">The balances, the transaction records, the payroll history and the running tracker used to exist in one place only, so a bad write or a mistyped edit had nothing behind it. They now copy themselves into a separate local history on a repeating timer, and every copy is dated, so any one of them can be brought back as it stood at any point. The history is deliberately kept on this machine and nowhere else &mdash; it refuses to copy itself anywhere off the computer, because these files carry client names, pay and bank detail. It was also tested against the one failure that matters: a copy taken while a file is half-written is rejected rather than saved, so a broken snapshot can never quietly replace a good one.</div></details>
+<details class="proj"><summary><b>The list of everything left behind is now a page you can work through, and it answers back</b></summary><div class="syswhy">Every open item found across months of notes was re-checked against the system that actually knows the answer &mdash; the payroll records, the ledger, the live balances, the app itself &mdash; rather than against the notes, which contradict each other. That produced 214 distinct items, of which 91 genuinely need you; the rest are mine. They are ordered most important first, and where two matter equally the quicker one comes first, each with an estimate of how much of your time it costs. Every item now opens with a single plain sentence saying what was found and what it means, with the full trail of what was checked folded away behind it &mdash; nothing removed, just out of the way. There are six ways to answer each one, including handing it to a named person, marking it as waiting on someone with a date to chase them, and asking for it to be explained before you decide. Answers save as you go and can be undone.</div></details>
+
+<div class="note">As of Wednesday, August 12, 2026 &middot; both accounts reconciled, checking at $68,848.52</div>
+</div></body></html>
