@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFS daily report &middot; Friday, August 14, 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style>
+</head>
+<body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Friday, August 14, 2026 &middot; what got done, and where the cash stands</div></header>
+
+<h2>Today's work</h2><div class="rule"></div>
+<details class="proj"><summary><b>Morning routine</b><span class="pill ok">3</span></summary><ul class="acts">
+<li>Both accounts reconciled. Capital One tied to zero difference.</li>
+<li>Citizens showed a $125.98 difference that had no explanation this morning. It is now explained: two pending APPLE.COM/BILL holds of $62.99 each, neither of them yet in the transaction records. Nothing is missing.</li>
+<li>Checking finished the day at $72,643.68, up $18,235.16. Capital One rose $723.31 to $57,314.56 as card charges posted.</li>
+</ul></details>
+<details class="proj"><summary><b>RBA remittance</b><span class="pill ok">3</span></summary><ul class="acts">
+<li>The Andersen deposit landed at <b>$23,818.07</b> &mdash; <b>$4,088.05 above</b> last Friday's $19,730.02, and $5,818.07 above the $18,000.00 the forecast now holds it at.</li>
+<li>It was the only money in all week. No client payment came through Buildertrend at all, against $45,047.05 the week before &mdash; RBA carried the week on its own.</li>
+<li>A duplicate $16,000.00 Andersen entry was found in the outlook and removed. It was the estimate that should have dropped off when the real deposit arrived, counted a second time. No cash was ever missing; the projection had been overstated by that amount.</li>
+</ul></details>
+<details class="proj"><summary><b>Money owed, in and out</b><span class="pill ok">3</span></summary><ul class="acts">
+<li>70 Robin invoice 0004 is on record at <b>$26,012.65</b>, with the roofing line removed at Rafael's direction. It is issued and it is modelled nowhere in the outlook, so every figure below assumes none of it arrives.</li>
+<li>$18,822.80 of checks are written but not yet cashed. <b>$4,516.50 of that has not left the building</b> &mdash; the South Shore check for the 70 Robin insulation is printed and still in hand, not handed over.</li>
+<li>Both Jaar Realty rent checks, June and July, are still uncashed.</li>
+</ul></details>
+<details class="proj"><summary><b>Reports</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>The Friday weekly recap for Rafael was rebuilt and published. Three sections that had quietly disappeared are back: receivables, payables with a forward check schedule, and the day-by-day walk through next week.</li>
+<li>Rafael's trip tracker was refreshed. The Shell fleet card figure of $220.15, which until today could not be checked against any file, is now confirmed &mdash; the QuickBooks export was kept this time.</li>
+</ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile"><div class="k">Checking today</div><div class="v">$72,643.68</div><div class="sub">reconciled</div></div>
+<div class="tile"><div class="k">Capital One</div><div class="v">$57,314.56</div><div class="sub">reconciled</div></div>
+<div class="tile"><div class="k">Low point</div><div class="v">$19,291.25</div><div class="sub">Thu Aug 27</div></div>
+<div class="tile"><div class="k">Over the floor</div><div class="v">$4,291.25</div><div class="sub">at the low point</div></div>
+</div>
+<div class="outlook"><p><b>The month no longer dips below the $15,000.00 floor.</b> Yesterday four days did, and the lowest of them sat at $7,939.16 &mdash; $7,060.84 under. Today the lowest day in the whole window is <b>Thursday, August 27 at $19,291.25</b>, which is <b>$4,291.25 clear of the floor</b>, and no other day comes near it. That change is worth being precise about, because <b>it is not money arriving</b>. It is three decisions: the weekly RBA deposit is now carried at <b>$18,000.00</b> rather than $16,000.00, which lifts the window by <b>$4,000.00</b>; the $500.00 weekly retainer is cancelled and its three remaining payments came out, worth <b>$1,500.00</b>; and a duplicated <b>$16,000.00</b> entry was removed this morning. Checking itself stands at <b>$72,643.68</b>, up <b>$18,235.16</b> on the day, almost all of it the RBA remittance.</p>
+<p>The RBA deposit at <b>$23,818.07</b> is the only money that came in all week, and it is worth noting how far it sits above what the outlook plans for. Carrying it at <b>$18,000.00</b> is still deliberately below what it has actually been paying &mdash; but it is a floor with four weeks behind it rather than fifteen, so it is a less cautious assumption than the one it replaces.</p>
+<p class="muted">The window runs to <b>August 31</b> and carries <b>$77,543.10</b> going out against <b>$40,210.67</b> coming in, across <b>50</b> dated items, closing at <b>$35,311.25</b>. Two payroll weeks are in it, each priced at <b>$19,251.44</b>, which is what the last run came to. Rafael's travel is carried at <b>$160.00 a day</b>, <b>$2,720.00</b> across the <b>17</b> days of it inside the window. <b>The 70 Robin invoice 0004, now on record at $26,012.65 with the roofing line removed, is counted nowhere in these figures</b>, because nothing has been collected against it. Collecting it would lift the lowest day of the month from $19,291.25 to roughly $45,303.90.</p></div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<details class="proj"><summary><b>The automatic backup now pauses during a working session</b></summary><div class="syswhy">It commits and pushes every ten minutes, and this morning it published five sets of unreviewed changes while work was still in progress. It can now be paused and resumed on demand, and it restarts itself after twelve hours so a pause that gets forgotten cannot quietly leave the work without a backup.</div></details>
+<details class="proj"><summary><b>A check-tracking fault that reported paid checks as unpaid</b></summary><div class="syswhy">The bank sometimes records a cleared check under its own reference rather than the number written on it. The tool that lists outstanding checks matched on that number alone, so any check with a mismatch looked permanently unpaid. It now cross-checks the amount as well, and reports anything it cannot match with certainty for a person to confirm rather than deciding on its own.</div></details>
+<details class="proj"><summary><b>Check numbers ending in zero were being cut short</b></summary><div class="syswhy">A formatting fault trimmed the final digit, so check 3780 displayed as 378. The totals were never wrong, but two different checks could have collided. Fixed and confirmed against the full history.</div></details>
+<details class="proj"><summary><b>The QuickBooks export is now kept</b></summary><div class="syswhy">Figures taken from QuickBooks used to be transcribed and the export discarded, which left them impossible to re-check later. Today's export is stored with a fingerprint so any number taken from it can be traced back.</div></details>
+
+<div class="note"><b>Open items:</b>
+<div style="margin-top:5px">The outlook carries Apple's monthly charge at $7.99, but today's two pending holds are $62.99 each. That recurring amount is understated and needs a correct figure before it is trusted.</div>
+<div style="margin-top:5px">QuickBooks does not yet hold every card charge for Rafael's trip, so the vacation tagging there is behind what the tracker already sees.</div>
+</div>
+
+<div class="note">As of Friday, August 14, 2026 &middot; both accounts reconciled, checking at $72,643.68</div>
+</div></body></html>
