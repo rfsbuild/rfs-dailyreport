@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFS daily report &middot; Monday, August 24, 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style>
+</head>
+<body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Monday, August 24, 2026 &middot; what got done, and where the cash stands</div></header>
+
+<h2>Today's work</h2><div class="rule"></div>
+<h3>Financial</h3><details class="proj"><summary><b>Check bank info and reconcile</b><span class="pill ok">3</span></summary><ul class="acts"><li>Bank information checked first thing across Citizens, Capital One and Home Depot, pending screens included, and both accounts then reconciled.</li><li>Both tie to zero difference. Checking at <b>$70,794.44</b>, Capital One at <b>$54,503.80</b>.</li><li>Today's bank exports were filed and reconciled before any figure on this page was read from them.</li></ul></details><details class="proj"><summary><b>Update receipts to QuickBooks</b><span class="pill ok">1</span></summary><ul class="acts"><li>Receipts entered into QuickBooks and cross-checked against our own numbers.</li></ul></details><details class="proj"><summary><b>Materials paid for 51 Cedar</b><span class="pill ok">1</span></summary><ul class="acts"><li><b>$7,486.72</b> paid online to LA Tiles &mdash; half of the materials for the job, settled today.</li></ul></details><details class="proj"><summary><b>Home Depot cards reviewed</b><span class="pill ok">2</span></summary><ul class="acts"><li>Both card payments falling due were identified &mdash; <b>$1,155.00</b> on one card and <b>$319.00</b> on the other, <b>$1,474.00</b> together &mdash; and the records were brought up to date.</li><li>Both now sit inside the cash outlook below rather than outside it.</li></ul></details><details class="proj"><summary><b>Coming payments confirmed with the team</b><span class="pill ok">1</span></summary><ul class="acts"><li>Went through the payments coming up with the team and updated the cash outlook to match what they confirmed.</li></ul></details><details class="proj"><summary><b>September rent check printed</b><span class="pill ok">1</span></summary><ul class="acts"><li>September's office rent check was printed and goes in today's mail.</li></ul></details><h3>Office</h3><details class="proj"><summary><b>70 Robin &mdash; change orders sent</b><span class="pill ok">2</span></summary><ul class="acts"><li>An email covering all of the change orders was sent to the client.</li><li>All of the change orders themselves went out immediately after it.</li></ul></details><details class="proj"><summary><b>Truck parking secured in Leominster</b><span class="pill ok">2</span></summary><ul class="acts"><li>Two parking spots for the trucks were found and taken in Leominster.</li><li>The details and the payment receipt went straight to Luiz and Gerson.</li></ul></details><h3>RBA</h3><details class="proj"><summary><b>Correct workers' hours in QuickBooks Time</b><span class="pill ok">1</span></summary><ul class="acts"><li>Crew hours corrected in QuickBooks Time, covering Friday&rsquo;s work on two Andersen jobs and Saturday&rsquo;s work on one Andersen job.</li></ul></details><details class="proj"><summary><b>Upload photos from the past day of work</b><span class="pill ok">1</span></summary><ul class="acts"><li>Photographs from both groups uploaded to Drive, for the same days.</li></ul></details><details class="proj"><summary><b>Next week's schedule set up</b><span class="pill ok">2</span></summary><ul class="acts"><li>Next week's schedule is built out across the control sheet, the accounting system, the time-tracking system and the shared drive &mdash; the Monday step that starts the RBA week.</li><li>Rafael and Guilherme were both told it is ready.</li></ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile"><div class="k">Checking today</div><div class="v">$70,794.44</div><div class="sub">reconciled</div></div><div class="tile"><div class="k">Capital One</div><div class="v">$54,503.80</div><div class="sub">reconciled</div></div><div class="tile"><div class="k">Low point</div><div class="v">$40,378.68</div><div class="sub">Thursday 27 August</div></div><div class="tile"><div class="k">Over the floor</div><div class="v">$25,378.68</div><div class="sub">at the low point</div></div>
+</div>
+<div class="outlook">
+<p>Checking <b>$70,794.44</b> and Capital One <b>$54,503.80</b>, both reconciled this morning. The low point ahead is <b>$40,378.68</b> on Thursday 27 August, <b>$25,378.68</b> clear of the $15,000.00 floor, and no day in the window sits under it.</p><p>Two payments sit outside those figures. Today's <b>$7,486.72</b> materials payment for 51 Cedar was made after this morning's bank file was pulled, so it is not in the balance above; if it settles from checking the low falls to <b>$32,891.96</b>. The voided South Shore insulation check, up to <b>$4,516.50</b>, is <b>still owed</b> and reduces it again when their corrected invoice arrives. Both landing in full leaves the low at <b>$28,375.46</b>, which still clears the floor.</p><p>Rafael's trip: nothing new from the trip posted today on either account. He is expected back on Wednesday, which is not confirmed, so the <b>$160.00</b>-a-day allowance stays modelled to the end of the month. The running total against it is still held back from this page until one outstanding charge is categorised &mdash; the trip page will not publish a figure it cannot break down.</p></div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<details class="proj"><summary><b>What gets said in chat now reaches the working list by itself</b></summary><div class="syswhy">An automatic sweep now reads the team's chat channels and the shared inbox and turns what it finds into a working list, so something raised in conversation stops depending on whoever happened to see it. Today it was corrected to cover the company's most important channel, which had never been included &mdash; live items had been sitting there that no system was reading.</div></details><details class="proj"><summary><b>The shared inbox is being cleared of pure noise, carefully</b></summary><div class="syswhy">The shared inbox is being cleared of traffic that is only a notification &mdash; delivery notices and calendar digests &mdash; so that what is left is what actually needs a person. The rule set for it is deliberate: anything carrying a dollar amount, an order or a promise someone has to keep stays exactly where it is. That rule earned its keep straight away, because several real items were found hiding in what looked like routine noise, and every one of them was kept.</div></details>
+
+<div class="note">As of Monday, August 24, 2026 &middot; both accounts reconciled, checking at $70,794.44</div>
+</div></body></html>
