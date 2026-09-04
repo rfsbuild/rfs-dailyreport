@@ -1,0 +1,108 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RFS daily report &middot; 31 Aug &ndash; 4 Sep 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Monday 31 August &ndash; Friday 4 September, 2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">Five working days in one report &mdash; what got done, tagged with the day it was done. Tap any line to open it.</div>
+<h3>Financial <span class="muted">7 tasks</span></h3>
+<details class="proj"><summary><b>Reconciled both accounts and corrected two errors in the cash plan</b><span class="pill">Fri 4 Sep</span><span class="pill ok">4</span></summary><ul class="acts"><li>Citizens and Capital One both reconciled, checking at <b>$58,148.41</b>.</li><li>Found an <b>$18,000</b> Andersen deposit being counted twice — the real money had already landed and was inside the balance. Removed.</li><li>Found a <b>$673.39</b> loan payment still being charged against a loan that finished in July after nineteen payments. Removed, and stopped it re-appearing automatically on the 12th.</li><li>Together those two took <b>$17,326.61</b> out of the projection.</li></ul></details>
+<details class="proj"><summary><b>Ran payroll for the week ending 29 August</b><span class="pill">Tue 1 Sep</span><span class="pill ok">1</span></summary><ul class="acts"><li>13 people, <b>$17,873.05</b>, thirteen checks issued.</li></ul></details>
+<details class="proj"><summary><b>Checked the Saturday premium against hours actually paid</b><span class="pill">Tue 1 Sep</span><span class="pill ok">2</span></summary><ul class="acts"><li>Confirmed it was <b>already paid on 26 August</b> — nothing owed.</li><li>Put a permanent check in place that runs before any payroll is saved, so the question cannot be got wrong again.</li></ul></details>
+<details class="proj"><summary><b>Put all thirteen payroll checks into the cash plan individually</b><span class="pill">Wed 2 Sep</span><span class="pill ok">2</span></summary><ul class="acts"><li>Previously they sat as one lump on a single day.</li><li>The plan now shows money leaving on the day each check actually clears.</li></ul></details>
+<details class="proj"><summary><b>Removed a $319 Home Depot charge from the cash plan</b><span class="pill">Thu 3 Sep</span><span class="pill ok">1</span></summary><ul class="acts"><li>The balance behind it had been paid in full and the card sits at zero.</li></ul></details>
+<details class="proj"><summary><b>Settled Bruno's check as one obligation rather than two</b><span class="pill">Thu 3 Sep</span><span class="pill ok">1</span></summary><ul class="acts"><li>The check already issued is the one he was promised, so nothing further needed cutting.</li></ul></details>
+<details class="proj"><summary><b>Re-measured the overhead rate and cut it in four steps</b><span class="pill">Mon 31 Aug</span><span class="pill ok">2</span></summary><ul class="acts"><li>From 41.4% down to <b>32.7%</b>.</li><li>Owner lines reviewed, a savings transfer that had actually stopped in July taken out, and the revenue base re-sourced from the control sheet instead of a five-week-old copy.</li></ul></details>
+<h3>Office <span class="muted">2 tasks</span></h3>
+<details class="proj"><summary><b>Reviewed subcontractor insurance certificates</b><span class="pill">Wed 2 Sep</span><span class="pill ok">2</span></summary><ul class="acts"><li>Four are <b>expired or expiring</b> — one lapsed on 29 August, one expires today, and one has been out of date for eleven months.</li><li>Following these up directly with the subs.</li></ul></details>
+<details class="proj"><summary><b>Cleaned up the payroll records</b><span class="pill">Tue 1 Sep</span><span class="pill ok">2</span></summary><ul class="acts"><li>Corrected Antonio's full name across the records.</li><li>Removed a worker who had left from the payroll list.</li></ul></details>
+<h3>RBA <span class="muted">4 tasks</span></h3>
+<details class="proj"><summary><b>Finished the crew's daily job form and put it in their hands</b><span class="pill">Wed 2 Sep</span><span class="pill ok">2</span></summary><ul class="acts"><li>In Portuguese, one report per project per day, filed by the crew leader.</li><li>Photos and materials captured with each report.</li></ul></details>
+<details class="proj"><summary><b>Reworked the form the same evening off what the crew hit using it</b><span class="pill">Thu 3 Sep</span><span class="pill ok">2</span></summary><ul class="acts"><li>First real reports came in from site that afternoon.</li><li>One question open at a time, and unfinished openings now carry over automatically instead of being re-picked.</li></ul></details>
+<details class="proj"><summary><b>Chased down the extra labour on the Rindge Turnpike job</b><span class="pill">Fri 4 Sep</span><span class="pill ok">2</span></summary><ul class="acts"><li><b>Seven openings</b> had interior stops fitted; only three had been written up.</li><li>Crew leader confirmed all seven were the same — <b>$140</b> to claim.</li></ul></details>
+<details class="proj"><summary><b>Reworked the crew-pay model onto live revenue</b><span class="pill">Mon 31 Aug</span><span class="pill ok">1</span></summary><ul class="acts"><li>Revenue now taken from the control sheet, so it stops understating the jobs worked since July.</li></ul></details>
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile"><div class="k">Checking today</div><div class="v">$58,148.41</div><div class="sub">both accounts reconciled</div></div>
+<div class="tile"><div class="k">Capital One</div><div class="v">$53,964.25</div><div class="sub">$52,992.57 posted &middot; $971.68 pending</div></div>
+<div class="tile warn"><div class="k">Low point</div><div class="v">$19,568.02</div><div class="sub">Thursday 10 September</div></div>
+<div class="tile warn"><div class="k">Over the floor</div><div class="v">$4,568.02</div><div class="sub">at the low point</div></div>
+</div>
+<div class="outlook">
+<p>The low point holds <b>$4,568.02</b> above the $15,000.00 floor. That is a real margin, but it is a thinner one than the plan showed this morning &mdash; correcting the two errors above took <b>$17,326.61</b> out of the projection.</p>
+<p>The figure depends on one estimate: <b>Tuesday's payroll run is modelled at $19,190.42</b>, the median of the last three. The real number is known on Tuesday and will move the low point with it.</p>
+</div>
+<div class="callout bad"><b>This week's Andersen deposit came in at $15,720.01.</b> That is the smallest Friday of the year so far, and it breaks a run of sixteen straight Fridays at or above $16,000 going back to early May. It is the second time in nine weeks the deposit has landed under the $18,000 we plan against. One week is not a trend &mdash; but two in nine is worth watching.</div>
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<div class="sysrow"><div class="syswhat">A five-day gap in these reports</div><div class="syswhy">This report covers 31 August through today in one piece, because the daily went unbuilt for five working days while the crew app was being finished. Each item above says which day it belongs to.</div></div>
+<div class="sysrow"><div class="syswhat">The cash plan now checks its own wording</div><div class="syswhy">Every figure written into the plan's notes is now tested against the live numbers. It caught a stale figure the same morning it was introduced — in a sentence written by the person doing the correcting.</div></div>
+<div class="sysrow"><div class="syswhat">Two errors found by re-deriving, not by reading</div><div class="syswhy">Both cash-plan errors this week were found by rebuilding the number from the bank records and seeing it disagree — not by re-reading the note that described it. The automated check was green on both, because it was testing that the entries existed rather than whether they should.</div></div>
+<div class="sysrow"><div class="syswhat">The crew form was fixed by using it</div><div class="syswhy">Both problems in the job form were found by someone tapping through it on a phone — the crew leader and then a run-through here. Seventy-nine automated checks passed on the version that had the fault.</div></div>
+<div class="note">As of Friday, September 4, 2026 &middot; both accounts reconciled</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>
