@@ -1,0 +1,152 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RFS daily report &middot; 9 Sep 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Thursday 10 September, 2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">Tap any line to open it.</div>
+
+<h3>Financial <span class="muted">6 tasks</span></h3>
+
+<details class="proj"><summary><b>Reconciled both accounts</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Citizens reconciled, checking at <b>$35,705.69</b>.</li>
+<li>Capital One loaded alongside it at <b>$57,190.47</b>.</li></ul></details>
+
+<details class="proj"><summary><b>Recovered the payroll run that had been overwritten</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>The week ending 29 August is back in full &mdash; <b>$18,053.05</b>, being thirteen checks worth <b>$17,873.05</b> plus a <b>$180.00</b> sub payment to AJ Thorne.</li>
+<li>Recovering it also made a <b>$1,204.90</b> check visible again, which had been hidden from every count while the record was missing.</li></ul></details>
+
+<details class="proj"><summary><b>Re-counted the checks that have not cashed</b><span class="pill ok">1</span></summary><ul class="acts">
+<li><b>$19,512.30</b> is still out. The figure rose because of the recovered check above, not because anything new was written.</li></ul></details>
+
+<details class="proj"><summary><b>The card exposure was far smaller than the system was carrying</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Pending charges on today's statement come to <b>$1,914.45</b>. The system was still holding yesterday's <b>$9,819.35</b>, of which <b>$8,761.31</b> had already posted and was therefore being counted twice.</li></ul></details>
+
+<details class="proj"><summary><b>Rechecked receivables</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Every open client balance walked against Buildertrend.</li></ul></details>
+
+<details class="proj"><summary><b>43 Haverford &mdash; the client had already answered, and nobody had seen it</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Marga replied on the 9th offering two walkthrough dates. The message sat unread for about twenty-one hours.</li>
+<li>Alice answered her at 11:30. The walkthrough is the only thing still holding the final <b>$4,210.67</b>.</li></ul></details>
+
+<h3>RBA <span class="muted">4 tasks</span></h3>
+
+<details class="proj"><summary><b>Rafael challenged the profit page &mdash; it was checked twice and it is right</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Two jobs were queried, RA471 and RA437. Both were audited, then audited again independently by a separate pass.</li>
+<li>The page is not wrong on either job.</li></ul></details>
+
+<details class="proj"><summary><b>Eighteen jobs are running at a loss</b><span class="pill ok">2</span></summary><ul class="acts">
+<li><b>18</b> of <b>160</b> jobs, carrying <b>$46,326.29</b> of revenue, produce a <b>$4,365.79</b> loss between them.</li>
+<li>Read against the whole book it stays in proportion: <b>$658,030.42</b> of revenue returning <b>$101,577.50</b> before materials, a <b>15.4%</b> margin. This is a pricing problem on particular jobs, not on the business.</li></ul></details>
+
+<details class="proj"><summary><b>The packet reader was quietly dropping billable work</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Two jobs were found where declared openings never reached the sheet, so the work existed and the charge did not. Both are fixed.</li></ul></details>
+
+<details class="proj"><summary><b>Updated QuickBooks against the RBA sheet, and took on a new job</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>QuickBooks brought in line with the remittance sheet.</li>
+<li>A job Andersen added at short notice is now in the system and on the schedule.</li></ul></details>
+
+<h3>Office <span class="muted">4 tasks</span></h3>
+
+<details class="proj"><summary><b>Subcontractor insurance is in worse shape than anyone thought</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Of <b>53</b> active subcontractors, <b>29</b> have insurance that is expired or missing &mdash; and <b>8</b> of those have no certificate on file at all.</li>
+<li>The count was run twice, independently, and the two runs agree.</li></ul></details>
+
+<details class="proj"><summary><b>Next week's schedule is finished</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Built and uploaded to both QuickBooks and QuickBooks Time.</li></ul></details>
+
+<details class="proj"><summary><b>Office meeting</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Rafael, Alice and Guilherme.</li></ul></details>
+
+<details class="proj"><summary><b>Settled how the daily Slack notes will work</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Sections, who is named, and what a finished item looks like are all decided. Building starts from the agreed version.</li></ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile"><div class="k">Checking today</div><div class="v">$35,705.69</div><div class="sub">reconciled 10 September</div></div>
+<div class="tile"><div class="k">After uncashed checks</div><div class="v">$16,193.39</div><div class="sub">$19,512.30 still out</div></div>
+<div class="tile"><div class="k">Card balance</div><div class="v">$57,190.47</div><div class="sub">pending only $1,914.45 today</div></div>
+<div class="tile warn"><div class="k">Held by a walkthrough</div><div class="v">$4,210.67</div><div class="sub">43 Haverford, work finished</div></div>
+<div class="tile ok"><div class="k">Double-counted exposure</div><div class="v">$8,761.31</div><div class="sub">cleared off the card reading</div></div>
+</div>
+<div class="outlook">
+<p>Checking reconciled at <b>$35,705.69</b>, with <b>$19,512.30</b> committed to checks that have not yet cashed. What can actually be spent is <b>$16,193.39</b>.</p>
+<p>The card reads better than it did yesterday for a real reason rather than a hopeful one: <b>$8,761.31</b> of charges the system still counted as pending had in fact already posted, so that exposure was being carried twice.</p>
+<p class="muted">Figures come from the reconciled statements and the check register. The recovered payroll record is the reason the uncashed total moved, and no new commitment was created today.</p>
+</div>
+
+<div class="callout bad"><b>More than half the active subcontractors have no valid insurance on file.</b> Of <b>53</b> active subs, <b>29</b> are expired or missing, and <b>8</b> of those have never had a certificate at all. The count was run twice independently and both runs agree. Any of them working on a live job is uninsured exposure carried by RFS, not by them.</div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<div class="sysrow"><div class="syswhat">The blocked crew e-mail was traced to the wrong account, not a wrong password</div><div class="syswhy">Days of failures came down to one fact: the workspace administrator is info@, not hadassa@. The permission being asked for could never have been granted from the account asking for it.</div></div>
+<div class="sysrow"><div class="syswhat">A lost payroll record can be restored, and the count that depends on it corrected</div><div class="syswhy">The week ending 29 August had been overwritten in place. It is back, and with it a $1,204.90 check that no report could see while the record was gone.</div></div>
+<div class="sysrow"><div class="syswhat">Declared work now has to reach the billing sheet</div><div class="syswhy">The reader that turns a job packet into billable lines was dropping openings it could not match, silently. Two jobs had already lost work that way. It now fails loudly instead of quietly.</div></div>
+<div class="note"><b>Correction to yesterday's report.</b> The 9 September report gave the payroll for the week ending 5 September as <b>$20,754.45</b>, and its stored total as <b>$20,934.45</b>. The correct figure is <b>$20,772.43</b> across fifteen checks. The difference is one worker's hours corrected after that report was written, and a $180.00 sub payment that belongs to the previous week. No payment was wrong; only the summary figure was.</div>
+<div class="note">As of Thursday, September 10, 2026 &middot; Citizens reconciled</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>

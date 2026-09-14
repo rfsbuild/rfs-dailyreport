@@ -1,0 +1,154 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RFS daily report &middot; 9 Sep 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Wednesday 9 September, 2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">Tap any line to open it.</div>
+
+<h3>Financial <span class="muted">8 tasks</span></h3>
+
+<details class="proj"><summary><b>Reconciled both accounts</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Citizens reconciled, checking at <b>$43,372.56</b>.</li>
+<li>Capital One statement loaded alongside it.</li></ul></details>
+
+<details class="proj"><summary><b>The Buildertrend payout landed</b><span class="pill ok">1</span></summary><ul class="acts">
+<li><b>$8,279.50</b> arrived by direct deposit. It had been expected for days and was sitting in no forecast and no receivables row, so the reconcile is what confirmed it.</li></ul></details>
+
+<details class="proj"><summary><b>Found the credit card almost full &mdash; and found out why nothing had said so</b><span class="pill ok">3</span></summary><ul class="acts">
+<li>Posted balance <b>$54,429.16</b> plus <b>$9,819.35</b> of charges still pending comes to <b>$64,248.51</b> against a <b>$65,000.00</b> line &mdash; <b>98.84%</b> used, with <b>$751.49</b> left.</li>
+<li>The dashboard read <b>83.74%</b> because it only counted charges that had already posted. Pending charges were invisible to every part of the system.</li>
+<li>The Buildertrend renewal of about <b>$6,156.98</b> is due around Saturday. On the old reading it looked affordable; in fact it would have gone over the limit by <b>$5,405.49</b>.</li></ul></details>
+
+<details class="proj"><summary><b>Paid $6,000.00 toward the card</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>That lifts the room on the line to <b>$6,751.49</b>, which covers the renewal with <b>$594.51</b> to spare.</li>
+<li>No smaller payment cleared the renewal, and no larger one left Tuesday's payroll covered from cash alone.</li></ul></details>
+
+<details class="proj"><summary><b>Tracked down the $7,817.22 materials charge</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>J. B. Sash and Door Co, on Rafael's card. A doors and sash supplier, so it is materials and belongs to a job.</li>
+<li>It had not been flagged because it is still pending, and pending charges never entered the system at all. Both the pending blindness and the flagging rule behind it were fixed today.</li></ul></details>
+
+<details class="proj"><summary><b>Surfaced an interest charge of $1,311.83</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>One month of purchase interest on the card. It had never appeared in any report before today.</li></ul></details>
+
+<details class="proj"><summary><b>Re-counted the checks that have not cashed</b><span class="pill ok">3</span></summary><ul class="acts">
+<li>The real figure is <b>$21,112.30</b> across <b>16</b> checks &mdash; <b>$1,949.90</b> more than the system had been reporting.</li>
+<li>One cause was a matching error: a $745.00 rent check was being treated as cashed because a different check for the same amount, to the same landlord, had cleared. That is corrected and now cannot recur.</li>
+<li>The other cause is a payroll record that was overwritten, which hides a <b>$1,204.90</b> check from every count. The lost record is recoverable and restoring it is the first job next session.</li></ul></details>
+
+<details class="proj"><summary><b>Caught a $180.00 error in the payroll record</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>The fifteen checks are correct and were paid correctly. The stored total for the run reads <b>$20,934.45</b> where the checks add to <b>$20,754.45</b>. Only the summary figure is wrong.</li></ul></details>
+
+<h3>RBA <span class="muted">3 tasks</span></h3>
+
+<details class="proj"><summary><b>Fixed the admin page that was not adding up line items</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>A worker had entered seven units and the total showed blank. It should have read <b>$140.00</b>.</li>
+<li>The entries were never the problem &mdash; the page's code had stopped running. Working now.</li></ul></details>
+
+<details class="proj"><summary><b>Confirmed no crew photos have been lost</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Every photo the crew declared on the 7th and the 8th is on the server &mdash; <b>15 of 15</b> and <b>21 of 21</b>. Nothing is missing.</li>
+<li>The upload errors that prompted the check were empty extra requests sent after the real photos had already landed, not failed photos. The alarm was counting the wrong thing and has been corrected.</li></ul></details>
+
+<details class="proj"><summary><b>The crew-to-Andersen mapping already exists</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>All <b>29</b> field lines were already mapped. The export simply was not using them, which is a much smaller job than rebuilding the mapping.</li></ul></details>
+
+<h3>Office <span class="muted">3 tasks</span></h3>
+
+<details class="proj"><summary><b>Published the reports for the 7th and the 8th</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Both are live, and the report hub now lists September properly.</li>
+<li>Corrected a filing error left over from the 4th, where one week's count did not match the reports inside it.</li></ul></details>
+
+<details class="proj"><summary><b>Specified the daily Slack notes for the project channels</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Sections, rules and cadence are settled and a sample was reviewed. One question remains open: how a person marks their own item finished. Nothing is built yet.</li></ul></details>
+
+<details class="proj"><summary><b>Added a check that refuses a bad check number</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Written after a check number was carried from one payroll run into the next, so one number stood for two payments. A run with a repeated or stale number is now refused before it saves.</li></ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile"><div class="k">Checking today</div><div class="v">$43,372.56</div><div class="sub">reconciled 9 September</div></div>
+<div class="tile"><div class="k">After uncashed checks</div><div class="v">$22,260.26</div><div class="sub">16 checks, $21,112.30 still out</div></div>
+<div class="tile warn"><div class="k">Card line used</div><div class="v">98.84%</div><div class="sub">before today's $6,000.00 payment</div></div>
+<div class="tile bad"><div class="k">Tuesday's payroll gap</div><div class="v">$4,494.19</div><div class="sub">after the card payment clears</div></div>
+</div>
+<div class="outlook">
+<p>Checking reconciled at <b>$43,372.56</b>, but <b>$21,112.30</b> of that is already committed to sixteen checks that have not cashed. The figure that can actually be spent is <b>$22,260.26</b>.</p>
+<p>Once the <b>$6,000.00</b> card payment clears, that becomes <b>$16,260.26</b> &mdash; <b>$1,260.26</b> above the $15,000.00 floor. Tuesday's payroll is expected at about <b>$20,754.45</b>, which leaves a gap of <b>$4,494.19</b> to be met from money coming in.</p>
+<p>The receipt that closes it is a client payment of <b>$5,211.54</b>, confirmed paid and expected Thursday. A second item worth <b>$4,210.67</b> is finished work waiting only on a walkthrough, whose date is in question &mdash; confirming that date is worth more than it looks, because it is holding the money that makes Tuesday comfortable.</p>
+<p class="muted">These figures are calculated from the reconciled statements and the check register directly. The cash projection covers only through Thursday, so Tuesday's payroll sits outside it and is not reflected in any projected balance.</p>
+</div>
+<div class="callout bad"><b>The credit card was at 98.84% of its limit and nothing in the system was saying so.</b> Pending charges &mdash; $9,819.35 of them, including a $7,817.22 materials charge &mdash; were counted nowhere. The renewal due Saturday would have taken the account over its limit. Both the blindness and the flagging rule that hid it were fixed today, and the pending charges are now on the books.</div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<div class="sysrow"><div class="syswhat">Pending card charges are now read straight from the statement</div><div class="syswhy">The pending page is parsed automatically and checked against its own stated total, so a layout change fails loudly instead of quietly returning a short list. On today's numbers that check is the difference between reading the card at 83.74% and reading it at 98.84%.</div></div>
+<div class="sysrow"><div class="syswhat">Materials charges now flag at any amount</div><div class="syswhy">The old rule only flagged card charges of $2,000.00 or more, so a known supplier billing $1,900.00 was never seen. Materials and unrecognised charges now flag whatever they cost, and each one starts as awaiting a receipt, so one queue answers both what was charged and whether the receipt is filed.</div></div>
+<div class="sysrow"><div class="syswhat">Two checks that disagreed about the same number now have to agree</div><div class="syswhy">Two separate calculations of uncashed checks had been $745.00 apart for a day. One was right. They are now compared automatically and a disagreement stops being something someone has to notice.</div></div>
+<div class="sysrow"><div class="syswhat">An independent review of the day's numbers caught a real error</div><div class="syswhy">A separate check of everything changed today found that available cash had been overstated by $1,949.90. It did not change which card payment was the right one, but it did mean the cushion behind Tuesday's payroll was thinner than it had looked. The correction is reflected in the figures above.</div></div>
+<div class="note">As of Wednesday, September 9, 2026 &middot; Citizens reconciled</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>

@@ -1,0 +1,138 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RFS daily report &middot; 9 Sep 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Friday 11 September, 2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">Tap any line to open it.</div>
+
+<h3>Money in and out <span class="muted">5 tasks</span></h3>
+
+<details class="proj"><summary><b>The Andersen payment landed</b><span class="pill ok">2</span></summary><ul class="acts">
+<li><b>$28,995.00</b> arrived by direct deposit, covering <b>16</b> jobs. It ties to the remittance sheet to the cent.</li>
+<li>The sheet was updated the same day, so paid and outstanding now read from one place.</li></ul></details>
+
+<details class="proj"><summary><b>Chased Andersen on what they did not pay</b><span class="pill ok">1</span></summary><ul class="acts">
+<li><b>$1,175.00</b> is still open across three jobs &mdash; RA528 <b>$405.00</b>, RA530 <b>$570.00</b> and RA542 <b>$200.00</b>. Queried with them rather than written off.</li></ul></details>
+
+<details class="proj"><summary><b>Sent Bob Rochford's invoices</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Issued at Rafael's request, on 70 Robin.</li></ul></details>
+
+<details class="proj"><summary><b>Chris Heaton's cheque was chased and collected in person</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Followed up with Chris directly; Mr Wilson went to collect it.</li>
+<li>His questions were passed to Rafael so they get answered rather than sitting with the office.</li></ul></details>
+
+<details class="proj"><summary><b>Paid the asbestos invoice on 98 Wyman</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Eastern Environmental, invoice 4481, <b>$1,850.00</b>.</li></ul></details>
+
+<h3>RBA <span class="muted">2 tasks</span></h3>
+
+<details class="proj"><summary><b>The crew app moved forward again</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>The form the crews fill in was rebuilt to the layout that was approved, and the missing drawings were added.</li>
+<li>It was used on a real job the same afternoon and worked.</li></ul></details>
+
+<details class="proj"><summary><b>Rafael can now pull a job's photo package himself</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Each piece of extra work can be downloaded as its own folder, so nothing has to be assembled by hand before it goes to Andersen.</li></ul></details>
+
+<h3>Office <span class="muted">4 tasks</span></h3>
+
+<details class="proj"><summary><b>Morning routine</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Run as usual.</li></ul></details>
+
+<details class="proj"><summary><b>The weekly report is done</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Finished and ready.</li></ul></details>
+
+<details class="proj"><summary><b>Slack is now connected</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Setup finished, so messages can be read and posted from the system rather than copied by hand.</li></ul></details>
+
+<details class="proj"><summary><b>The daily summary will post itself, from 8pm</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Decided: it goes out automatically each evening at <b>8pm Eastern</b>, starting with the first send.</li></ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile ok"><div class="k">Andersen received</div><div class="v">$28,995.00</div><div class="sub">16 jobs, ties to the sheet</div></div>
+<div class="tile warn"><div class="k">Still owed on those jobs</div><div class="v">$1,175.00</div><div class="sub">three jobs, queried</div></div>
+<div class="tile bad"><div class="k">Lowest point ahead</div><div class="v">$13,827.12</div><div class="sub">Thursday 17 September</div></div>
+<div class="tile bad"><div class="k">Below the floor by</div><div class="v">$1,172.88</div><div class="sub">three days under</div></div>
+</div>
+<div class="outlook">
+<p>The Andersen deposit of <b>$28,995.00</b> landed and matches the sheet exactly, which is the cleanest it has reconciled in a while.</p>
+<p>Even so, the week ahead dips. The low point is <b>$13,827.12</b> on Thursday the 17th, which is <b>$1,172.88</b> under the <b>$15,000.00</b> floor, and it stays under for three days before recovering to <b>$29,417.12</b> by the 20th.</p>
+<p>For context on what can be expected next Friday: of the last <b>36</b> Andersen Fridays, <b>16</b> came in below <b>$18,000.00</b> and <b>11</b> below <b>$16,000.00</b>. The last nine averaged <b>$22,121.47</b>.</p>
+<p class="muted">The deposit figure is taken from the bank export and checked against the remittance sheet job by job. The outlook is calculated from the reconciled balance forward.</p>
+</div>
+
+<div class="callout bad"><b>Cash goes under the floor for three days next week.</b> The low is <b>$13,827.12</b> on Thursday 17 September, <b>$1,172.88</b> below the <b>$15,000.00</b> floor, and it stays under until the next Andersen deposit. It recovers to <b>$29,417.12</b> by the 20th.</div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<div class="sysrow"><div class="syswhat">The crew app is live and was proven on a real job</div><div class="syswhy">The rebuilt form went out and a crew filed a complete job through it the same afternoon, photos and all. That is the first end-to-end use rather than a test.</div></div>
+<div class="sysrow"><div class="syswhat">The checks that guard the crew app are now tested by trying to break them</div><div class="syswhy">It is not enough that a check passes; it has to fail when something is actually wrong. Six deliberate faults were introduced and every one was caught. A check that stops catching its fault now shows up as a fault itself.</div></div>
+<div class="sysrow"><div class="syswhat">Photo packages leave as a folder per item</div><div class="syswhy">What used to be assembled by hand before going to Andersen now comes out of the system already sorted.</div></div>
+<div class="note">As of Friday, September 11, 2026</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>
