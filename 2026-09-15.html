@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RFS daily report &middot; 15 Sep 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Tuesday 15 September, 2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">Tap any line to open it.</div>
+
+<h3>Money in and out <span class="muted">5 tasks</span></h3>
+
+<details class="proj"><summary><b>The countertops on 51 Cedar are paid in full</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>LA Tiles Marble, second and final half, <b>$7,486.72</b>.</li></ul></details>
+
+<details class="proj"><summary><b>The accountant's tax and legal work was paid</b><span class="pill ok">1</span></summary><ul class="acts">
+<li><b>$3,270.00</b> to Justine, covering tax and legal services.</li></ul></details>
+
+<details class="proj"><summary><b>The 14 Guernsey cheque is now spendable cash</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>The <b>$21,000.00</b> deposited on Monday came off hold this morning, which is what lifted the balance to <b>$61,306.10</b>.</li>
+<li>It had also been counted a second time in the outlook by mistake. That was found and removed, so the week ahead is no longer overstated by <b>$21,000.00</b>.</li></ul></details>
+
+<details class="proj"><summary><b>Andersen confirmed $7,414.98 in writing for Friday</b><span class="pill ok">2</span></summary><ul class="acts">
+<li><b>Beresford $5,004.99</b> and <b>Conlan Orino $2,409.99</b> &mdash; both approved by their management and due in Friday's remittance. Neither has been paid yet.</li>
+<li>Both were being tracked as money already received and unbooked, which was wrong. They are now tracked as what they are: confirmed, unpaid, and due on the 18th.</li></ul></details>
+
+<details class="proj"><summary><b>Morning reconciliation</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Both bank accounts reconciled against the exports. The balance ties.</li></ul></details>
+
+<h3>RBA <span class="muted">2 tasks</span></h3>
+
+<details class="proj"><summary><b>Crew photos now label themselves as they are taken</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>Until today a crew member had to take the photo and then tag it in a second step, which in practice was skipped. Roughly all photos were arriving in one undifferentiated pile, which is no use as proof of extra work.</li>
+<li>The camera now sits inside each before and after slot, so a photo is labelled by the act of taking it. There is also an optional slot for the conclusion certificate.</li></ul></details>
+
+<details class="proj"><summary><b>The photo upload failures were traced and fixed</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>They were not rejected photos. The uploads were arriving empty, and a failed upload used to be parked and lost. It now retries, so a real photo is no longer thrown away.</li></ul></details>
+
+<h3>Office <span class="muted">6 tasks</span></h3>
+
+<details class="proj"><summary><b>Morning routine</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Run as usual.</li></ul></details>
+
+<details class="proj"><summary><b>The credit card application pack is ready</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Every balance on it was read fresh rather than carried over from the last attempt. One figure had gone stale by roughly <b>$6,700.00</b>, which would have gone onto the application as written.</li></ul></details>
+
+<details class="proj"><summary><b>The job board was worked through end to end</b><span class="pill ok">3</span></summary><ul class="acts">
+<li>All <b>205</b> open cards were reviewed independently and sorted into keep, done, noise and cannot-tell.</li>
+<li>Hadassa then ruled on the whole batch: <b>32</b> closed and <b>11</b> dropped.</li>
+<li><b>50</b> cards were given a named owner &mdash; 38 to Rafael, 10 to Guilherme &mdash; so no card sits without someone responsible for it.</li></ul></details>
+
+<details class="proj"><summary><b>Alice's handover was checked line by line</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>All <b>19</b> items in her final handover document were matched against the board. Ten were already covered, four partly, and <b>four were not on the board at all</b>.</li>
+<li>Those four are now on it, including the only safety item in her list &mdash; a structural gap beside a bee nest on 104 Child, where the inspection the client was promised was never confirmed back to her.</li></ul></details>
+
+<details class="proj"><summary><b>Our information went to the marketing company</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Sent.</li></ul></details>
+
+<details class="proj"><summary><b>Call with the BuilderTrend team and Rafael</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Held today.</li></ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile ok"><div class="k">Bank, reconciled</div><div class="v">$61,306.10</div><div class="sub">the hold released this morning</div></div>
+<div class="tile"><div class="k">Lowest point ahead</div><div class="v">$23,875.77</div><div class="sub">Thursday 17 September</div></div>
+<div class="tile ok"><div class="k">Above the floor by</div><div class="v">$8,875.77</div><div class="sub">no day under it this week</div></div>
+<div class="tile ok"><div class="k">Confirmed for Friday</div><div class="v">$7,414.98</div><div class="sub">Andersen, in writing</div></div>
+<div class="tile warn"><div class="k">Payroll, estimated</div><div class="v">$19,190.42</div><div class="sub">Wednesday, hours not yet approved</div></div>
+</div>
+<div class="outlook">
+<p>The <b>$21,000.00</b> cheque came off hold this morning and the reconciled balance is <b>$61,306.10</b>.</p>
+<p><b>Friday's warning has cleared.</b> That report had the balance dropping to <b>$13,827.12</b> on Thursday the 17th and staying under the <b>$15,000.00</b> floor for three days. With the cheque released, the low point ahead is <b>$23,875.77</b> on Thursday the 17th &mdash; <b>$8,875.77</b> clear of the floor &mdash; and the week closes at <b>$39,465.77</b>.</p>
+<p>That figure already carries this week's payroll at <b>$19,190.42</b>, today's two payments totalling <b>$10,756.72</b>, and Friday's Andersen deposit taken at the <b>$18,000.00</b> floor rather than at what it is likely to be. The confirmed <b>$7,414.98</b> sits inside that <b>$18,000.00</b> rather than on top of it.</p>
+<p class="muted">Balances are read from the bank exports and reconciled the same morning. Payroll is an estimate until the hours are approved. Today's two payments are recorded from the payment being made; neither has reached the bank statement yet.</p>
+</div>
+
+<div class="callout bad"><b>Payroll moves to Wednesday.</b> It could not run today because the hours are still waiting on Rafael's approval, and cheques cannot be printed until they are. The outlook above has it on the 16th rather than the 15th. It is the single largest item in the week at <b>$19,190.42</b>.</div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<div class="sysrow"><div class="syswhat">Photographs are now labelled by the act of taking them</div><div class="syswhy">Labelling used to be an optional second step and the crews did not make it, so the photographs that prove extra work arrived unusable. Moving the camera inside each before and after slot removes the step rather than asking anyone to remember it.</div></div>
+<div class="sysrow"><div class="syswhat">A correction can no longer be quietly undone</div><div class="syswhy">Three corrections made this morning were silently reversed when the dashboard saved an older copy of itself over them, and for about three hours the outlook was overstated by roughly $28,000.00. It was found, repaired, and a check now recalculates the stored figures and fails when they no longer match what they were built from.</div></div>
+<div class="sysrow"><div class="syswhat">The evening summary now retries instead of going quiet</div><div class="syswhy">It stopped one night on a single malformed piece of text and nobody was told. It now saves what it received before reading it, retries, and if it still cannot finish it reports what it lost rather than sending nothing.</div></div>
+<div class="note">As of Tuesday, September 15, 2026</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>

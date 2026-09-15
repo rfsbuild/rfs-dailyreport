@@ -1,0 +1,137 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RFS daily report &middot; 14 Sep 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Monday 14 September, 2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">Tap any line to open it.</div>
+
+<h3>Money in and out <span class="muted">4 tasks</span></h3>
+
+<details class="proj"><summary><b>Three client invoices were paid</b><span class="pill ok">3</span></summary><ul class="acts">
+<li><b>43 Haverford</b> &mdash; <b>$4,210.67</b> came in and the job's balance is now <b>$0.00</b>.</li>
+<li><b>70 Robin</b> &mdash; invoice 0008 <b>$7,081.99</b> and invoice 0009 <b>$6,288.49</b> were both paid, each one day after falling due.</li>
+<li>That is <b>$17,581.15</b> collected in a single morning. It is recorded in BuilderTrend on the day and reaches the bank on the next payout.</li></ul></details>
+
+<details class="proj"><summary><b>Chris Heaton's cheque was banked</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>The <b>$21,000.00</b> cheque collected on Friday was deposited on Monday, on 14 Guernsey.</li>
+<li>The bank held it overnight rather than releasing it the same day, so it did not count towards Monday's available cash. It cleared on Tuesday morning.</li></ul></details>
+
+<details class="proj"><summary><b>MK Plumbing was paid on 14 Guernsey</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Cheque 3946, <b>$3,360.00</b> &mdash; exactly 80% of the $4,200.00 estimate, in line with the agreed terms.</li></ul></details>
+
+<details class="proj"><summary><b>The routine payments went out as scheduled</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>The loan, vehicle and insurance payments for the 14th cleared without exception, and the asbestos invoice paid on Friday cleared the same day.</li></ul></details>
+
+<h3>Jobs <span class="muted">2 tasks</span></h3>
+
+<details class="proj"><summary><b>Three jobs were taken through close-out</b><span class="pill ok">2</span></summary><ul class="acts">
+<li><b>3 Arborview</b>, <b>43 Haverford</b> and <b>104 Child</b> were reviewed for final close-out, with the figures pulled live from BuilderTrend rather than from the office's own records.</li>
+<li>That comparison was worth doing: on all three jobs the office record and BuilderTrend disagreed, in one case by a very large margin. BuilderTrend was treated as the record.</li></ul></details>
+
+<details class="proj"><summary><b>An overhead rate was set for the close-outs</b><span class="pill ok">1</span></summary><ul class="acts">
+<li><b>32.6701%</b> is the rate being applied when a job is closed out, so every job is costed the same way rather than case by case.</li></ul></details>
+
+<h3>Office <span class="muted">4 tasks</span></h3>
+
+<details class="proj"><summary><b>Morning routine</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Run as usual, with the weekly review that starts each Monday.</li></ul></details>
+
+<details class="proj"><summary><b>The old QuickBooks account was opened and checked</b><span class="pill ok">2</span></summary><ul class="acts">
+<li>The costs that were thought to be lost are in there. The revenue in that account is counted twice, which is now proven rather than suspected.</li>
+<li>Decision: the old account is to be retired once its numbers have been taken out of it.</li></ul></details>
+
+<details class="proj"><summary><b>Thursday's and Friday's reports were published</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Both were outstanding and are now out, with the correction to Thursday's figure carried in Friday's rather than quietly changed.</li></ul></details>
+
+<details class="proj"><summary><b>Rafael can now answer job questions in one place</b><span class="pill ok">1</span></summary><ul class="acts">
+<li>Rather than chasing answers across messages, the job questions were put on a single board that Rafael can open and answer directly.</li></ul></details>
+
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile ok"><div class="k">Collected from clients</div><div class="v">$17,581.15</div><div class="sub">three invoices, one morning</div></div>
+<div class="tile ok"><div class="k">Cheque deposited</div><div class="v">$21,000.00</div><div class="sub">held overnight by the bank</div></div>
+<div class="tile"><div class="k">Bank, reconciled</div><div class="v">$43,178.01</div><div class="sub">available basis, excludes the hold</div></div>
+<div class="tile warn"><div class="k">Still to confirm</div><div class="v">$15,000.00</div><div class="sub">the floor the week was testing</div></div>
+</div>
+<div class="outlook">
+<p>Monday was a collection day. <b>$17,581.15</b> came in across three invoices, and the <b>$21,000.00</b> cheque from 14 Guernsey was deposited.</p>
+<p>The bank held that cheque overnight, so the reconciled balance at the close of Monday was <b>$43,178.01</b> on an available basis and the deposit did not yet count. That matters, because Friday's report warned the balance would drop under the <b>$15,000.00</b> floor for three days from the 15th. Until the hold released, that warning still stood.</p>
+<p>It released on Tuesday morning. Tuesday's report carries the resolved position.</p>
+<p class="muted">Balances are taken from the bank export and reconciled the same morning. Client payments are read from BuilderTrend, which records them on the day they are made rather than when they reach the bank.</p>
+</div>
+
+<div class="callout bad"><b>The floor warning from Friday was still open at the close of Monday.</b> The <b>$21,000.00</b> deposit was in the bank but on hold, so it could not be counted. The position was only safe once the hold released the following morning.</div>
+
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<div class="sysrow"><div class="syswhat">Job questions now sit on one board instead of in messages</div><div class="syswhy">Questions for Rafael used to be scattered across chats and easily lost. They are now on a single board he can open and answer in, so an unanswered question is visible rather than forgotten.</div></div>
+<div class="sysrow"><div class="syswhat">Job figures are read from BuilderTrend, not from the office's own copy</div><div class="syswhy">The close-out review compared both and they disagreed on every one of the three jobs. Reading the live source removes a whole class of error from the close-out numbers.</div></div>
+<div class="sysrow"><div class="syswhat">The old QuickBooks account has a decision instead of a question mark</div><div class="syswhy">It holds real cost history and double-counted revenue. Rather than leaving it half-used, it will be harvested and then retired, so there is one set of books and not two.</div></div>
+<div class="note">As of Monday, September 14, 2026</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>
