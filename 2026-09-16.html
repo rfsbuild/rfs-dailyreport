@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RFS daily report &middot; 16 Sep 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<!-- FIDELITY: added=PM reason=her instruction 2026-09-17, departments separated and she now carries project management -->
+<!-- FIDELITY: added=Marketing reason=her own note for the day is headed "Marketing:", so it is her word and her department -->
+<!-- FIDELITY: dropped=callout reason=the callout box is for a single standout warning; neither day had one that outranked the cards -->
+<!-- FIDELITY: dropped=bad reason=bad only ever styles the callout, which this day does not use -->
+<header><h1>RFS daily report</h1>
+<div class="sub">Wednesday 16 September, 2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">What got done on Wednesday, grouped by the part of the business it belongs to. Tap any line to open it.</div>
+<h3>Money in and out <span class="muted">6 tasks</span></h3>
+<details class="proj"><summary><b>Ran the week's payroll</b><span class="pill ok">1</span></summary><ul class="acts"><li>Thirteen people paid for the week ending 12 September.</li></ul></details>
+<details class="proj"><summary><b>Paid the subcontractors</b><span class="pill ok">1</span></summary><ul class="acts"><li>The week's subcontractor payments went out.</li></ul></details>
+<details class="proj"><summary><b>Chased LA Tiles on what looked like a duplicate charge</b><span class="pill ok">2</span></summary><ul class="acts"><li>A third charge of <b>$7,486.72</b> had appeared against 51 Cedar.</li><li>It is <b>not a duplicate</b> — it is a real additional charge, and that is now recorded as the answer rather than left as a suspicion.</li></ul></details>
+<details class="proj"><summary><b>Checked the morning reconciliation a second time, and it found five faults</b><span class="pill ok">3</span></summary><ul class="acts"><li>Both accounts had already been reconciled at 09:39; the second pass compared them against the raw bank files rather than against our own record.</li><li>A <b>$1,343.08</b> insurance payment had gone missing from the cash plan and was put back.</li><li>A phone charge of <b>$60.53</b> that never happened was being predicted every month. Removed, and the underlying figure corrected to <b>$55.48</b> so it stops coming back.</li></ul></details>
+<details class="proj"><summary><b>Cleaned thirteen duplicated entries out of the bank record</b><span class="pill ok">2</span></summary><ul class="acts"><li>The same payments had been recorded twice and were distorting the history.</li><li>Citizens went from 2,912 entries to a clean set, and the duplicate count is now <b>zero</b>.</li></ul></details>
+<details class="proj"><summary><b>Recorded the first bank deposit ever entered into QuickBooks</b><span class="pill ok">2</span></summary><ul class="acts"><li><b>$19,730.02</b> from 7 August, made up of eleven customer payments, matched to the bank feed.</li><li>The pile of unbanked payments dropped by exactly those eleven, from <b>$299,665.71</b> to <b>$279,935.69</b>.</li></ul></details>
+<h3>RBA <span class="muted">2 tasks</span></h3>
+<details class="proj"><summary><b>Caught the crew being told we had no paperwork for a job when we did</b><span class="pill ok">3</span></summary><ul class="acts"><li>It was not one job — <b>eight</b> of them.</li><li>Asked for the following days to be checked too, so the crew is never sent out short.</li><li>The system can no longer say a document is missing unless someone has actually looked for it.</li></ul></details>
+<details class="proj"><summary><b>Found distance money that has never been claimed</b><span class="pill ok">3</span></summary><ul class="acts"><li>Andersen pays a distance charge per day on jobs over fifty miles out.</li><li><b>$750.00</b> is certainly unclaimed, and about <b>$2,250.00</b> is still claimable within the window.</li><li>Raised making the distance calculation automatic so it stops depending on someone remembering.</li></ul></details>
+<h3>Office <span class="muted">3 tasks</span></h3>
+<details class="proj"><summary><b>Built the picture of who actually does what, ahead of the meeting</b><span class="pill ok">3</span></summary><ul class="acts"><li>Her own list came to <b>124 tasks across 13 areas</b>.</li><li>Guilherme's 58 and Rafael's 12 were taken down in their own words rather than summarised.</li><li><b>Ten places</b> where Rafael's and Guilherme's work overlaps, and <b>seven</b> that are in nobody's list.</li></ul></details>
+<details class="proj"><summary><b>Compared our bank record against QuickBooks for August and September</b><span class="pill ok">1</span></summary><ul class="acts"><li><b>107</b> payments that are in the bank and not in QuickBooks were listed out.</li></ul></details>
+<details class="proj"><summary><b>Checked the Andersen control sheet against the bank</b><span class="pill ok">2</span></summary><ul class="acts"><li>The sheet agrees with the bank on five of the six weeks tested.</li><li>Where they disagree, <b>QuickBooks is the one that is wrong</b> — not the sheet.</li></ul></details>
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile ok"><div class="k">Bank, reconciled</div><div class="v">$60,161.56</div><div class="sub">both accounts</div></div>
+<div class="tile"><div class="k">Capital One</div><div class="v">$62,491.42</div><div class="sub">$60,869.35 posted &middot; $1,622.07 pending</div></div>
+<div class="tile warn"><div class="k">Low point</div><div class="v">$32,205.40</div><div class="sub">Wednesday 16 September</div></div>
+<div class="tile warn"><div class="k">Above the floor</div><div class="v">$17,205.40</div><div class="sub">at the low point</div></div>
+</div>
+<div class="outlook"><p>The low point holds <b>$17,205.40</b> above the $15,000.00 floor. Both accounts were reconciled twice: once in the morning, and again against the raw bank files, which is where the five faults above were found.</p></div>
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<div class="sysrow"><div class="syswhat">Errors are being found by rebuilding numbers, not by re-reading them</div><div class="syswhy">Both cash-plan faults this week were found by rebuilding the figure from the raw bank files and seeing it disagree — not by re-reading the note describing it. The automated checks were green on both, because they were testing that entries existed rather than whether they should.</div></div>
+<div class="sysrow"><div class="syswhat">A missing document can no longer be assumed</div><div class="syswhy">The system used to say a job had no paperwork based on a list someone maintained by hand. It now has to record that someone actually looked before it can say anything is missing.</div></div>
+<div class="note">As of Wednesday, September 16, 2026 &middot; both accounts reconciled</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>
