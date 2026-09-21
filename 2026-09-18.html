@@ -1,0 +1,102 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RFS daily report &middot; 18 Sep 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<!-- FIDELITY: dropped=Marketing reason=the department exists but this day had no marketing work; an empty heading claims work that was not done -->
+<!-- FIDELITY: dropped=callout reason=the callout box is for a single standout warning; this day had none that outranked the cards -->
+<!-- FIDELITY: dropped=bad reason=bad only ever styles the callout, which this day does not use -->
+<header><h1>RFS daily report</h1>
+<div class="sub">Friday 18 September, 2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">What got done on Friday, grouped by the part of the business it belongs to. Tap any line to open it.</div>
+<h3>Financial <span class="muted">4 tasks</span></h3>
+<details class="proj"><summary><b>Ran the morning routine and reconciled both accounts</b><span class="pill ok">1</span></summary><ul class="acts"><li>Checking closed the week at <b>$84,090.76</b>, both accounts reconciled.</li></ul></details>
+<details class="proj"><summary><b>Wrote Alice's final cheque</b><span class="pill ok">3</span></summary><ul class="acts"><li><b>$310.00</b> — ten hours at <b>$31.00</b>.</li><li>Eight of those hours are the Labor Day holiday that was missed on the previous run, and two are hours worked that had been left off an earlier cheque.</li><li>Her rate was checked against her own last payslip rather than assumed.</li></ul></details>
+<details class="proj"><summary><b>Paid $5,000.00 towards the credit card</b><span class="pill ok">1</span></summary><ul class="acts"><li>It left the bank on Friday and is inside the bank figure above.</li></ul></details>
+<details class="proj"><summary><b>Told the crew the holiday will be paid next week</b><span class="pill ok">2</span></summary><ul class="acts"><li>The eight hours of Labor Day pay that were missed go onto next week's run — about <b>$2,408.00</b> across the hourly crew.</li><li>This is now something the crew are expecting, not just something we have planned.</li></ul></details>
+<h3>RBA <span class="muted">2 tasks</span></h3>
+<details class="proj"><summary><b>The week's Andersen payment landed, and was checked against our own sheet before anything was booked</b><span class="pill ok">3</span></summary><ul class="acts"><li><b>$32,144.98</b> arrived by direct deposit — the largest single Andersen week so far.</li><li>It covers <b>16 projects</b>, and the year to date now stands at <b>$706,534.60</b>.</li><li>Cross-checked against our remittance sheet, posted into QuickBooks, and followed up with RBA.</li></ul></details>
+<details class="proj"><summary><b>Four jobs that looked underpaid turned out not to be</b><span class="pill ok">3</span></summary><ul class="acts"><li>Three of them — Lisa Dionne, Christopher Brooks and Michelle Broughton — read as paid in full on Andersen's own tracker, balance zero, with the approved extras already included.</li><li>What looked like a shortfall was our own paperwork disagreeing with itself, not Andersen paying short.</li><li>On the Lisa Dionne job the difference runs the other way: our packet totals more than the job is worth, which is worth fixing before it is sent anywhere.</li></ul></details>
+<h3>PM <span class="muted">1 tasks</span></h3>
+<details class="proj"><summary><b>Put the twenty-two most urgent items on the command board in front of Rafael, and rebuilt the system around his answers</b><span class="pill ok">3</span></summary><ul class="acts"><li>He worked through them and answered directly on the board.</li><li>Where an answer closed something, it was closed. Where an answer created a new job of work, that became its own item rather than being buried in a reply.</li><li>Rafael can now close items himself, including ones flagged as hers — and the board records that it was him, not her.</li></ul></details>
+<h3>Office <span class="muted">1 tasks</span></h3>
+<details class="proj"><summary><b>Scheduled next week</b><span class="pill ok">1</span></summary><ul class="acts"><li>Across the tracker sheet, QuickBooks, QuickBooks Time and Drive, so the week starts already set up.</li></ul></details>
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile ok"><div class="k">Bank, reconciled</div><div class="v">$84,090.76</div><div class="sub">both accounts</div></div>
+<div class="tile"><div class="k">Capital One</div><div class="v">$63,638.13</div><div class="sub">$62,157.26 posted &middot; $1,480.87 pending</div></div>
+<div class="tile warn"><div class="k">Low point</div><div class="v">$31,409.82</div><div class="sub">Tuesday 29 September</div></div>
+<div class="tile warn"><div class="k">Above the floor</div><div class="v">$16,409.82</div><div class="sub">at the low point</div></div>
+</div>
+<div class="outlook"><p>The week closed with the low point holding <b>$16,409.82</b> above the $15,000.00 floor, on Tuesday 29 September.</p><p>The <b>$5,000.00</b> card payment left the bank on Friday and is inside the bank figure above. The Capital One balance shown is our record as it stood before that payment was applied against the card, so the card is in better shape than the tile says.</p><p>Friday's <b>$32,144.98</b> from Andersen is the largest single week of the year and is what carries the plan through the end of the month.</p></div>
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<div class="sysrow"><div class="syswhat">A report can go stale without a single number changing</div><div class="syswhy">The written notes under the cash plan were typed in by hand. When the plan was rebuilt they stayed as they were, so the figures moved and the sentences describing them did not — and every automated check stayed green, because they test that the page is put together correctly, not whether a sentence still matches the number above it. The notes are now read off the plan itself, so they cannot drift apart again.</div></div>
+<div class="sysrow"><div class="syswhat">An alert that fires every day stops being an alert</div><div class="syswhy">The crew's morning email failed seventeen days running, and raised a warning every one of those days. The warning worked perfectly and nobody acted, because nothing distinguishes a problem's first day from its seventeenth. Something that keeps coming back needs to get louder, and today it does not.</div></div>
+<div class="sysrow"><div class="syswhat">The board now records who actually did something</div><div class="syswhy">Rafael closing an item used to be indistinguishable from her closing it. It now carries the real name. That matters more than it sounds: the whole point of her being able to hand work over is being able to see afterwards who it went to.</div></div>
+<div class="note">As of Friday, September 18, 2026 &middot; both accounts reconciled</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>
