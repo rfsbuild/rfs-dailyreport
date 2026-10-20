@@ -1,0 +1,144 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- FIDELITY: dropped=warn reason=the low point and the headroom are both NEGATIVE this fortnight (below zero, not just thin against the floor) — bad is the honest severity -->
+<!-- FIDELITY: added=bad reason=same as above — the low point tile and the headroom tile both read negative (carried forward from 2026-10-19) -->
+<!-- FIDELITY: added=callout reason=cash goes negative before month end — the standout finding the callout class exists for (carried forward from 2026-10-19) -->
+<!-- FIDELITY: added=job reason=template v2 2026-09-21 (carried forward) — PM job groups collapsed by default; only needed if compared against a pre-v2 report -->
+<!-- FIDELITY: added=cnt reason=template v2 2026-09-21 (carried forward) — the task count on a collapsed PM job group; only needed if compared against a pre-v2 report -->
+<title>RFS daily report &middot; 20 Oct 2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+
+/* v2 2026-09-21 — collapsible PM job groups + collapsible Systems rows */
+details.job{margin:12px 0 6px}
+details.job>summary{display:flex;gap:8px;align-items:center;cursor:pointer;list-style:none;
+padding:5px 2px;font-size:13.5px;font-weight:700;color:var(--brand-deep)}
+details.job>summary::-webkit-details-marker{display:none}
+details.job>summary::after{content:"+";margin-left:auto;color:var(--faint);
+font-size:15px;line-height:1;font-weight:400}
+details.job[open]>summary::after{content:"\2212"}
+details.job>summary .cnt{font-size:10.5px;padding:2px 8px;border-radius:20px;
+background:#f1f2f8;color:var(--muted);font-weight:650}
+details.job[open]{border-bottom:1px solid var(--rule);padding-bottom:6px}
+details.sysrow{padding:0}
+details.sysrow>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+list-style:none;padding:11px 14px}
+details.sysrow>summary::-webkit-details-marker{display:none}
+details.sysrow>summary::after{content:"+";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.sysrow[open]>summary::after{content:"\2212"}
+details.sysrow>.syswhy{padding:0 14px 12px}
+</style></head><body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Tuesday 20 October, 2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">What got done on Tuesday, grouped by the part of the business it belongs to. Tap any line to open it.</div>
+<h3>Financial <span class="muted">11 tasks</span></h3>
+<details class="proj"><summary><b>Ran the morning routine and reconciled both accounts</b><span class="pill ok">3</span></summary><ul class="acts"><li>Citizens checking stands at <b>$34,083.50</b> after the import, brought current for 20 October and matching the bank to the cent.</li><li>Four printed checks cleared: <b>#4019</b> $503.98, <b>#4021</b> $412.85, <b>#4029</b> $5,760.00 and <b>#4030</b> $740.00.</li><li>Yesterday&rsquo;s <b>$3.11</b> gap closed on its own &mdash; it was a bank hold that has since dropped.</li></ul></details>
+<div class="proj"><b>Checked the hours after Claude Cowork had corrected all of them</b></div>
+<details class="proj"><summary><b>Ran payroll for the week ending 17 October</b><span class="pill ok">3</span></summary><ul class="acts"><li><b>13</b> employee checks, <b>#4034&ndash;#4046</b>, <b>$18,146.50</b> in total net pay &mdash; saved in the dashboard, checks printed.</li><li>Samuel Valadares was paid in full.</li><li>Gustavo&rsquo;s check includes <b>$70.00</b> for gas he paid on his own card, because the company card did not go through.</li></ul></details>
+<details class="proj"><summary><b>Paid the vehicle registrations</b><span class="pill ok">2</span></summary><ul class="acts"><li><b>4</b> checks, <b>#4047&ndash;#4050</b>, <b>$800.00</b> to the Registry of Motor Vehicles; the check memos carry the plates.</li><li>Printed and handed to Rafael, because Natalia needs to sign the papers before the checks go out by mail.</li></ul></details>
+<details class="proj"><summary><b>Sent the Bravos invoices back to be corrected</b><span class="pill ok">2</span></summary><ul class="acts"><li>Asked Elton to confirm the project address on invoice 455.</li><li>Asked whether <b>$1,800.00</b> is the full amount for 51 Cedar, since no estimate was ever received &mdash; the contract goes to him and Rafael for signing once that is confirmed.</li></ul></details>
+<details class="proj"><summary><b>Sent the South Shore Spray Foam invoice back to be corrected per the contract</b><span class="pill ok">2</span></summary><ul class="acts"><li>The contract holds back 10% until the final inspection, so the invoice has to show <b>$903.30</b> retainage and <b>$3,613.20</b> due now, not the full remaining $4,516.50.</li><li>The Bill To also has to read RFS Builders Inc., not RFS Carpentry Services.</li></ul></details>
+<details class="proj"><summary><b>Requested updated certificates and pending documents from subs</b><span class="pill ok">2</span></summary><ul class="acts"><li>Emails went out from the billing inbox to AJ Throne, Alex Dias Painting, South Shore Spray Foam and Hybrid Air, and Harmony was emailed too.</li><li>AJ Throne has already sent a renewed certificate and South Shore Spray Foam replied that it will take care of it; Hybrid Air has not answered yet.</li></ul></details>
+<details class="proj"><summary><b>Uploaded the Financial Sheet</b><span class="pill ok">1</span></summary><ul class="acts"><li>Davidson&rsquo;s invoice (#142) is the one entry still to go in &mdash; tomorrow.</li></ul></details>
+<details class="proj"><summary><b>Worked with Claude to confirm the finished-project figures Rafael asked about</b><span class="pill ok">3</span></summary><ul class="acts"><li>Went through Rafael&rsquo;s questions from yesterday on 104 Child and 3 Arborview: why the final totals differ from Buildertrend, Yankee Pine, Custom Home, MGP, JB Sash, and crew hours by trade.</li><li>The answers are drafted and under her review before they go to him.</li><li>At her request Claude refreshed the finished-projects page with today&rsquo;s date; none of its figures changed.</li></ul></details>
+<details class="proj"><summary><b>Put the receipts into QuickBooks and had Claude cross-check them against the bank export</b><span class="pill ok">1</span></summary><ul class="acts"><li>A checklist of the items to fix is ready; the rest of the receipts work is tomorrow.</li></ul></details>
+<details class="proj"><summary><b>Flagged Masterpiece&rsquo;s final roof check (#4012) as likely to be reissued</b><span class="pill ok">2</span></summary><ul class="acts"><li>It had not reached the bank 13 days after printing. The plan keeps it on tomorrow until the new check exists.</li><li>The reissue is tomorrow, together with Davidson&rsquo;s entry on the Financial Sheet.</li></ul></details>
+<h3>RBA <span class="muted">1 task</span></h3>
+<details class="proj"><summary><b>Confirmed every open Andersen LSWP and JCC request has been answered</b><span class="pill ok">1</span></summary><ul class="acts"><li>The one item still owed is the Chen/Lynn rot quote; Rafael told Andersen he will send it.</li></ul></details>
+<h3>PM <span class="muted">6 tasks</span></h3>
+<details class="job"><summary>70 Robin &middot; Bob Rochford<span class="cnt">3 tasks</span></summary>
+<details class="proj"><summary><b>Emailed Bob last week&rsquo;s update together with Rafael&rsquo;s notes from today&rsquo;s site visit</b><span class="pill ok">2</span></summary><ul class="acts"><li>Rafael went to the house by himself &mdash; Bob was not there.</li><li>Rafael reviewed the draft first and asked for corrections to the basement, second-floor and kitchen lines; all were made before it went out.</li></ul></details>
+<div class="proj"><b>Answered Bob&rsquo;s other email: Rafael will be at the 8:00 AM bi-weekly check-in on Wednesday</b></div>
+<details class="proj"><summary><b>Passed Ayrton&rsquo;s reply on the 42,000 BTU unit to Guilherme</b><span class="pill ok">2</span></summary><ul class="acts"><li>Ayrton still thinks 42,000 BTU is more than Bob needs, but is fine with it if Bob prefers it; the equipment is already on site, so a possible return has to be agreed.</li><li>She asked Guilherme whether to go with Bob&rsquo;s choice. <b>No answer yet.</b></li></ul></details>
+</details>
+<details class="job"><summary>26 Lee &middot; Gillian<span class="cnt">2 tasks</span></summary>
+<details class="proj"><summary><b>Passed Gillian&rsquo;s answer on the hallway closet to Rafael</b><span class="pill ok">2</span></summary><ul class="acts"><li>Gillian wants the closet done; it mostly needs to be stripped and painted.</li><li>Told her Rafael will send the change order as soon as he can &mdash; it is with him.</li></ul></details>
+<details class="proj"><summary><b>Sent Rafael SkyTech&rsquo;s (Davidson&rsquo;s) kitchen electrical estimates</b><span class="pill ok">1</span></summary><ul class="acts"><li>Three versions, one of them a partial option, for him to pick from. No pick yet.</li></ul></details>
+</details>
+<details class="job"><summary>14 Guernsey &middot; Chris Heaton<span class="cnt">1 task</span></summary>
+<div class="proj"><b>Asked Rafael whether his visit notes needed to go to Chris &mdash; his answer: internal only</b></div>
+</details>
+<h3>Marketing <span class="muted">1 task</span></h3>
+<details class="proj"><summary><b>Agreed to Rafael&rsquo;s plan to add Rafael Barbosa to the marketing team&rsquo;s WhatsApp group</b><span class="pill ok">1</span></summary><ul class="acts"><li>The group would be Rafael, Hadassa and him.</li></ul></details>
+<h3>Office <span class="muted">2 tasks</span></h3>
+<details class="proj"><summary><b>Activated Truck 1&rsquo;s new card and put its information in the system</b><span class="pill ok">1</span></summary><ul class="acts"><li>Drive, the cards sheet, QB Time and the chart of accounts.</li></ul></details>
+<div class="proj"><b>Told Rafael that Gustavo asked for Friday off</b></div>
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile ok"><div class="k">Bank, reconciled</div><div class="v">$34,083.50</div><div class="sub">Citizens checking</div></div>
+<div class="tile"><div class="k">Capital One</div><div class="v">$63,606.39</div><div class="sub">$63,209.91 posted &middot; $396.48 pending</div></div>
+<div class="tile bad"><div class="k">Low point</div><div class="v">-$6,849.18</div><div class="sub">Thursday 29 October</div></div>
+<div class="tile bad"><div class="k">Short of the $15,000.00 floor</div><div class="v">$21,849.18</div><div class="sub">at the low point</div></div>
+</div>
+<div class="callout bad">Cash goes negative from <b>Tuesday 27 October</b> through <b>Thursday 29 October</b>, bottoming at <b>-$6,849.18</b>, and is back above zero on <b>Friday 30 October</b>. Not yet included: the Davidson (Acme Co.) invoice, <b>$1,600.00</b>, which enters the plan once it is on the Financial Sheet.</div>
+<div class="outlook"><p>Cash holds above zero through <b>Monday 26 October</b>, then goes under it on <b>Tuesday 27 October</b>, when the next payroll run is cut (modelled at <b>$17,361.32</b>). The low is <b>-$6,849.18</b> on Thursday 29 October, after that day&rsquo;s payroll-tax draft &mdash; <b>$21,849.18</b> under the $15,000.00 floor &mdash; and the plan stays negative until Friday 30 October.</p><p>What moves first: tomorrow&rsquo;s Travelers autopay and Masterpiece&rsquo;s two checks (#4031, plus #4012, which is likely to be reissued and so stays on tomorrow until it is). Then Thursday, which still carries South Shore&rsquo;s final payment &mdash; its corrected invoice is awaited, so that date will probably slip &mdash; against Haverford&rsquo;s <b>$5,309.70</b> Buildertrend payout, promised for today and not yet in the bank. Separately, <b>$35,515.26</b> across 28 printed checks is still working its way through the bank &mdash; already built into the plan, not an extra draw on top of it.</p><p>What pulls it back: Friday&rsquo;s modelled Andersen deposit, held at the standing <b>$18,000.00</b> floor rather than the real sheet pull, lands on 23 October and 30 October and carries the plan to a <b>$10,750.82</b> close &mdash; still <b>$4,249.18</b> under the floor.</p></div>
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<details class="sysrow"><summary><div class="syswhat">An estimate is only a placeholder until the real figure exists</div></summary><div class="syswhy">Until this afternoon the cash plan carried payroll as a single estimate. Once the run was saved, the 13 real checks replaced it and the four registration checks were added, and the low point moved down &mdash; because of the real checks, not because of new spending.</div></details>
+<details class="sysrow"><summary><div class="syswhat">Money promised for a date has not arrived until it shows in the bank</div></summary><div class="syswhy">The finished-projects tracker treated Haverford&rsquo;s Buildertrend payout as banked once the bank data reached the date Buildertrend had promised. The money had not arrived. The rule now counts a payout as banked only when a matching credit is in the Citizens account; until then it stays in transit.</div></details>
+<div class="note">As of Tuesday, October 20, 2026 &middot; both accounts reconciled</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>
