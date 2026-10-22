@@ -1,0 +1,126 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- FIDELITY: dropped=warn reason=the low point and the headroom are both NEGATIVE (carried forward from 2026-10-19/20) -->
+<!-- FIDELITY: added=bad reason=same as above — the low point and headroom tiles read negative (carried forward) -->
+<!-- FIDELITY: added=callout reason=cash goes negative before month end (carried forward) -->
+<!-- FIDELITY: dropped=job reason=no PM or RBA work recorded on 10/22/2026, so no PM job groups and no RBA/PM sections -->
+<!-- FIDELITY: dropped=cnt reason=same as above — the count lives on a PM job group -->
+<title>RFS daily report &middot; 10/22/2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+
+/* v2 2026-09-21 — collapsible PM job groups + collapsible Systems rows */
+details.job{margin:12px 0 6px}
+details.job>summary{display:flex;gap:8px;align-items:center;cursor:pointer;list-style:none;
+padding:5px 2px;font-size:13.5px;font-weight:700;color:var(--brand-deep)}
+details.job>summary::-webkit-details-marker{display:none}
+details.job>summary::after{content:"+";margin-left:auto;color:var(--faint);
+font-size:15px;line-height:1;font-weight:400}
+details.job[open]>summary::after{content:"\2212"}
+details.job>summary .cnt{font-size:10.5px;padding:2px 8px;border-radius:20px;
+background:#f1f2f8;color:var(--muted);font-weight:650}
+details.job[open]{border-bottom:1px solid var(--rule);padding-bottom:6px}
+details.sysrow{padding:0}
+details.sysrow>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+list-style:none;padding:11px 14px}
+details.sysrow>summary::-webkit-details-marker{display:none}
+details.sysrow>summary::after{content:"+";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.sysrow[open]>summary::after{content:"\2212"}
+details.sysrow>.syswhy{padding:0 14px 12px}
+</style></head><body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Thursday 10/22/2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">What got done on Thursday, grouped by the part of the business it belongs to. Tap any line to open it.</div>
+<h3>Financial <span class="muted">8 tasks</span></h3>
+<details class="proj"><summary><b>Ran the morning routine and reconciled both accounts</b><span class="pill ok">1</span></summary><ul class="acts"><li>Citizens checking stands at <b>$23,630.04</b> after the import, matching the bank to the cent.</li></ul></details>
+<details class="proj"><summary><b>Recorded how the week-ending 10/17/2026 payroll was paid in the end</b><span class="pill ok">2</span></summary><ul class="acts"><li>Rafael paid <b>5</b> of the checks in cash from his own money: <b>$8,100.00</b> handed for <b>$8,071.75</b> owed, rounded up because there was no change. The rest went out by check.</li><li>In QuickBooks: deposited Rafael&rsquo;s cash, voided the 5 checks, paid them from cash and entered the rounding.</li></ul></details>
+<details class="proj"><summary><b>Arranged Bravos&rsquo; (Elton) <b>$9,000.00</b> check, to be picked up Friday 10/23/2026</b><span class="pill ok">1</span></summary><ul class="acts"><li>The other <b>$500.00</b> and the 51 Cedar invoice (<b>$1,800.00</b>) are planned for the week of 10/30/2026.</li></ul></details>
+<div class="proj"><b>Scheduled a <b>$1,000.00</b> Capital One payment, out today</b></div>
+<details class="proj"><summary><b>Answered the open receipts questions and started Claude Cowork on fixing and entering them in QuickBooks</b><span class="pill ok">3</span></summary><ul class="acts"><li>Meals and gas on the trip go to Office and the rest of the trip to Owner Travel; personal purchases keep the Personal class; office costs carry no project, only the Office class.</li><li>Star Waste is always Debris &amp; Disposal (Materials).</li><li>Worked with Claude on the checklist and the Cowork instructions.</li></ul></details>
+<details class="proj"><summary><b>Asked the crew in #all-rfsbuilders which project and category each recent card purchase belongs to</b><span class="pill ok">1</span></summary><ul class="acts"><li>Waiting on their answers.</li></ul></details>
+<details class="proj"><summary><b>Worked with Claude to correct the 10/20/2026 daily report</b><span class="pill ok">1</span></summary><ul class="acts"><li>It now shows the payroll as finally paid, Masterpiece&rsquo;s #4012 and Haverford&rsquo;s payout as posted on 10/20/2026, and Davidson&rsquo;s #142 as an estimate.</li></ul></details>
+<details class="proj"><summary><b>Clarified that Davidson&rsquo;s #142 is an estimate waiting on Rafael&rsquo;s approval, not an invoice</b><span class="pill ok">1</span></summary><ul class="acts"><li><b>Rafael:</b> approve it or not. Until then it stays off the Financial Sheet and out of the cash plan.</li></ul></details>
+<h3>Marketing <span class="muted">1 task</span></h3>
+<div class="proj"><b>Marketing meeting (about 2h)</b></div>
+<h3>Office <span class="muted">2 tasks</span></h3>
+<div class="proj"><b>Rechecked all pending Slack messages</b></div>
+<div class="proj"><b>Rechecked tomorrow&rsquo;s schedule</b></div>
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile ok"><div class="k">Bank, reconciled</div><div class="v">$23,630.04</div><div class="sub">Citizens checking</div></div>
+<div class="tile"><div class="k">Capital One</div><div class="v">$65,218.63</div><div class="sub">$64,461.14 posted &middot; $757.49 pending</div></div>
+<div class="tile bad"><div class="k">Low point</div><div class="v">-$9,509.30</div><div class="sub">Thursday 10/29/2026</div></div>
+<div class="tile bad"><div class="k">Short of the $15,000.00 floor</div><div class="v">$24,509.30</div><div class="sub">at the low point</div></div>
+</div>
+<div class="callout bad">Cash goes negative from <b>Tuesday 10/27/2026</b> through <b>Thursday 10/29/2026</b>, bottoming at <b>-$9,509.30</b>, and is back above zero on <b>Friday 10/30/2026</b>.</div>
+<div class="outlook"><p>Cash drops under the $15,000.00 floor on <b>Sunday 10/25/2026</b> and under zero on <b>Tuesday 10/27/2026</b>, when the next payroll run is cut (modelled at <b>$17,361.32</b>). The low is <b>-$9,509.30</b> on Thursday 10/29/2026, after that day&rsquo;s payroll-tax draft and South Shore&rsquo;s final payment.</p><p>What moves first: today&rsquo;s <b>$1,000.00</b> Capital One payment, then on Friday Bravos&rsquo; <b>$9,000.00</b> check and the 7 payroll checks still to clear. <b>$14,494.30</b> across 18 printed checks is still on its way through the bank &mdash; already in the plan.</p><p>What pulls it back: the modelled Andersen deposit, held at the <b>$18,000.00</b> floor, on 10/23/2026 and 10/30/2026. Bravos&rsquo; <b>$500.00</b> and <b>$1,800.00</b> also go out on 10/30/2026, so the plan closes at <b>$5,790.70</b> &mdash; <b>$9,209.30</b> under the floor.</p></div>
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<details class="sysrow"><summary><div class="syswhat">Dates now read month/day/year everywhere</div></summary><div class="syswhy">From today every page, sheet and message writes dates as MM/DD/YYYY, Portuguese ones included.</div></details>
+<details class="sysrow"><summary><div class="syswhat">An estimate stays out of the books until it is approved</div></summary><div class="syswhy">Davidson&rsquo;s #142 had come in through the inbox and was logged as an invoice. It is now recorded as an estimate for Rafael everywhere, and only an approved job with a real invoice enters the Financial Sheet and the cash plan.</div></details>
+<div class="note">As of Thursday 10/22/2026 &middot; both accounts reconciled</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>
