@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RFS daily report &middot; 11/03/2026</title>
+<style>
+:root{--brand:#7b68ee;--brand-deep:#5a48d0;--brand-soft:#efecfe;--paper:#f5f6fb;
+--card:#fff;--rule:#e9ebf2;--ink:#1c2130;--body:#495061;--muted:#6b7385;--faint:#98a0b3;
+--ok:#2fa36b;--ok-bg:#e6f5ee;--bad:#dc4638;--bad-bg:#fbe7e5;--warn:#c07d10;--warn-bg:#fbf1dc;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased;padding:0 0 60px}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 14px}h1{margin:0;font-size:25px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+h2{margin:34px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--brand-deep)}
+h2+.rule{height:2px;background:var(--brand);opacity:.22;margin-bottom:14px}
+h3{margin:22px 0 8px;font-size:14.5px}
+h3 .muted{font-weight:400;font-size:12px;color:var(--faint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:12px 14px}
+.tile .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.tile .v{font-size:22px;font-weight:750;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:11.5px;color:var(--faint);margin-top:1px}
+.tile.bad .v{color:var(--bad)}.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}
+.callout{border-radius:9px;padding:10px 13px;font-size:13.5px;margin:10px 0}
+.callout.bad{background:var(--bad-bg);color:#8f2b20}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:11px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+td.pos{color:var(--bad);font-weight:650}td.neg{color:var(--ok)}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:#f1f2f8;color:var(--muted);font-weight:650}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.mut{background:#f6f7fb;color:var(--faint)}
+.lede{font-size:13.5px;color:var(--muted);margin:10px 0 12px}
+details.proj{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:0;margin-bottom:9px}
+details.proj>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+padding:11px 14px;list-style:none;font-size:14.5px}
+details.proj>summary::-webkit-details-marker{display:none}
+details.proj>summary::after{content:"−";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.proj:not([open])>summary::after{content:"+"}
+ul.acts{margin:0;padding:0 14px 12px 32px}
+ul.acts li{font-size:13.5px;color:var(--body);padding:3px 0;line-height:1.5}
+ul.acts li.drop{color:var(--faint)}
+.outlook p{font-size:14px;color:var(--body);margin:6px 0}
+.sysrow{background:var(--card);border:1px solid var(--rule);border-radius:11px;
+padding:11px 14px;margin-bottom:9px}
+.syswhat{font-size:14px;font-weight:650;color:var(--ink)}
+.syswhy{font-size:13px;color:var(--body);margin-top:3px}
+details.proj>.syswhy{padding:0 14px 12px;margin-top:0}
+@media (max-width:520px){.wrap{padding:0 14px}h1{font-size:21px}
+.tile .v{font-size:19px}ul.acts{padding-left:26px}}
+.note{font-size:12.5px;color:var(--body);background:#fffdf4;border-left:3px solid var(--warn);
+padding:5px 9px;border-radius:5px;margin:3px 0 6px 14px}
+.muted{color:var(--muted)}.gap{color:var(--bad);font-style:italic}
+.quote{background:var(--card);border-left:3px solid var(--rule);padding:9px 13px;
+font-size:13px;color:var(--body);border-radius:0 8px 8px 0}
+.foot{font-size:12px;color:var(--faint);margin-top:6px}
+ul{margin:6px 0;padding-left:20px}li{font-size:13.5px;color:var(--body)}
+code{background:#f1f2f8;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+font-size:11.5px;color:var(--faint)}
+@media print{body{background:#fff}.tile,.proj,.tblwrap{break-inside:avoid}}
+
+/* v2 2026-09-21 — collapsible PM job groups + collapsible Systems rows */
+details.job{margin:12px 0 6px}
+details.job>summary{display:flex;gap:8px;align-items:center;cursor:pointer;list-style:none;
+padding:5px 2px;font-size:13.5px;font-weight:700;color:var(--brand-deep)}
+details.job>summary::-webkit-details-marker{display:none}
+details.job>summary::after{content:"+";margin-left:auto;color:var(--faint);
+font-size:15px;line-height:1;font-weight:400}
+details.job[open]>summary::after{content:"\2212"}
+details.job>summary .cnt{font-size:10.5px;padding:2px 8px;border-radius:20px;
+background:#f1f2f8;color:var(--muted);font-weight:650}
+details.job[open]{border-bottom:1px solid var(--rule);padding-bottom:6px}
+details.sysrow{padding:0}
+details.sysrow>summary{display:flex;gap:8px;align-items:center;cursor:pointer;
+list-style:none;padding:11px 14px}
+details.sysrow>summary::-webkit-details-marker{display:none}
+details.sysrow>summary::after{content:"+";margin-left:auto;color:var(--faint);
+font-size:16px;line-height:1}
+details.sysrow[open]>summary::after{content:"\2212"}
+details.sysrow>.syswhy{padding:0 14px 12px}
+</style></head><body><div class="wrap">
+<header><h1>RFS daily report</h1>
+<div class="sub">Tuesday 11/03/2026 &middot; what got done, and where the cash sits</div></header>
+<h2>Today's work</h2><div class="rule"></div>
+<div class="lede">What got done on Tuesday, grouped by the part of the business it belongs to. Tap any line to open it.</div>
+<h3>Financial <span class="muted">4 tasks</span></h3>
+<details class="proj"><summary><b>Imported both accounts; reconciled with Claude, to the cent</b><span class="pill ok">2</span></summary><ul class="acts"><li>Checking tied to the cent (gap <b>$0.00</b>) on Tuesday&rsquo;s import and on the 11/04/2026 one.</li><li>Capital One&rsquo;s October statement shows no minimum due on 11/05/2026 (her screenshot).</li></ul></details>
+<details class="proj"><summary><b>Ran payroll for the week ending 10/31/2026; Cowork entered it and Claude checked it</b><span class="pill ok">2</span></summary><ul class="acts"><li>Claude matched every bill to the QB Time hours, to the cent; she printed checks #4072&ndash;#4082.</li><li>One pay rate went up from this week (she confirmed it), so one check was voided and reprinted as #4083. The run is <b>$17,295.56</b>; the checks still out are in the plan by number.</li></ul></details>
+<details class="proj"><summary><b>Worked out the profit of the two small jobs; she sent Rafael the page</b><span class="pill ok">2</span></summary><ul class="acts"><li>Counted as GC jobs (her ruling), after 32.67% overhead. Lynn job: <b>$5,390.00</b> in (the homeowners&rsquo; check), <b>$2,515.25</b> net (46.7%). South Boston job: <b>$523.43</b> net (38.8%).</li><li>Together: <b>$6,740.00</b> in, <b>$3,038.68</b> net (45.1%).</li></ul></details>
+<details class="proj"><summary><b>Listed what is still owed to subs on the open jobs</b><span class="pill ok">2</span></summary><ul class="acts"><li><b>$28,803.30</b> in all: <b>$22,273.30</b> confirmed and <b>$6,530.00</b> still to confirm. By job: 70 Robin <b>$23,833.30</b>, 14 Guernsey <b>$3,010.00</b>, 51 Cedar <b>$1,960.00</b>.</li><li>An independent check removed a double count and added a change order agreed only verbally. 106 Pease has no sub agreement on record and some change orders are unpriced, so the figure can rise.</li></ul></details>
+<div class="lede">Rafael&rsquo;s Finished Projects page did not change on 11/03/2026; its figures are as on the 10/28/2026 report.</div>
+<h3>RBA <span class="muted">1 task</span></h3>
+<details class="proj"><summary><b>Five crew-app changes went live, as she asked</b><span class="pill ok">2</span></summary><ul class="acts"><li>Photos and videos save to the phone (not yet tried on Rafael&rsquo;s iPhone); the JCC slot takes a print or a PDF and never blocks; PDF, Word and Excel files are accepted (not on the extra before/after photos); the Conclusion Certificate slot is gone; videos count and the stuck ones open.</li><li>On 11/03/2026 the server refused 14 photo uploads on RA598 and RA601, some before the update went live (photos were also refused on 10/30/2026); the cause is not found yet.</li></ul></details>
+<h3>PM <span class="muted">5 tasks</span></h3>
+<details class="job"><summary>26 Lee<span class="cnt">1 task</span></summary>
+<details class="proj"><summary><b>Invoice 0005 paid online</b><span class="pill ok">1</span></summary><ul class="acts"><li>BuilderTrend shows invoice 0005 (<b>$8,993.00</b>) paid online by the client, due in the bank on 11/05/2026 by its notice. Invoice 0006 (<b>$14,806.61</b>), a progress invoice due since 10/29/2026, is still open; the client asked whether it waits for the project&rsquo;s close, and no answer to her is on record.</li></ul></details>
+</details>
+<details class="job"><summary>70 Robin<span class="cnt">3 tasks</span></summary>
+<details class="proj"><summary><b>Invoice 0016 paid</b><span class="pill ok">1</span></summary><ul class="acts"><li>BuilderTrend shows invoice 0016 (<b>$990.00</b>, the fourth HVAC head) paid by the client, due in the bank on 11/05/2026 by its notice.</li></ul></details>
+<details class="proj"><summary><b>Rafael answered two open questions</b><span class="pill ok">2</span></summary><ul class="acts"><li>MK Plumbing&rsquo;s extra estimate was already revised, re-sent and decided (Rafael confirmed it).</li><li>The plumber will bill RFS for the temporary radiator lines; Rafael passes that cost to the client.</li></ul></details>
+<details class="proj"><summary><b>Water heater</b><span class="pill ok">1</span></summary><ul class="acts"><li>The supply house would not release it to the client (not licensed). Rafael says it is resolved: the plumber orders it through his own supplier and has it delivered.</li></ul></details>
+</details>
+<details class="job"><summary>14 Guernsey<span class="cnt">1 task</span></summary>
+<details class="proj"><summary><b>Trash run</b><span class="pill ok">1</span></summary><ul class="acts"><li>RFS pays the trash run directly; it is not billed back to the client (Rafael).</li></ul></details>
+</details>
+<h3>Office <span class="muted">1 task</span></h3>
+<details class="proj"><summary><b>Published Monday&rsquo;s daily report</b><span class="pill ok">1</span></summary><ul class="acts"><li>An independent check of 32 claims found all 24 dollar figures right and 8 points to fix (2 wrong statements), all fixed; it went live on 11/03/2026, on her go.</li></ul></details>
+<h2>Cash outlook</h2><div class="rule"></div>
+<div class="tiles">
+<div class="tile ok"><div class="k">Bank, reconciled</div><div class="v">$11,048.54</div><div class="sub">Citizens, end of 11/03/2026</div></div>
+<div class="tile"><div class="k">Capital One</div><div class="v">$64,110.59</div><div class="sub">$62,916.80 posted &middot; $1,193.79 pending</div></div>
+<div class="tile bad"><div class="k">Lowest day in the plan</div><div class="v">-$17,283.34</div><div class="sub">Thursday 11/12/2026</div></div>
+<div class="tile bad"><div class="k">Short of the $15,000.00 floor</div><div class="v">$32,283.34</div><div class="sub">on that day</div></div>
+</div>
+<div class="callout bad">Plan as of 11/04/2026, after the reconcile: under the $15,000.00 floor every day from <b>11/04/2026</b> through at least <b>Sunday 11/15/2026</b>, the end of the plan, and under zero from <b>Friday 11/06/2026</b>. The plan does not yet count <b>$9,983.00</b> two clients paid through BuilderTrend on 11/03/2026, due in the bank on 11/05/2026 by BuilderTrend&rsquo;s notices; with it, the plan is under zero only on Thursday 11/12/2026, at <b>-$7,300.34</b>.</div>
+<div class="outlook"><p>The bank figure is after a <b>$111.95</b> hold still pending. The lowest day is Thursday 11/12/2026 at <b>-$17,283.34</b>, the day before Andersen&rsquo;s 11/13/2026 deposit. The plan ends Sunday 11/15/2026 at <b>-$7,333.84</b>. It still counts Monday&rsquo;s two likely sub payments on Friday 11/06/2026; neither is confirmed, and the 70 Robin one may already be paid (her open question).</p><p>The low is <b>$10,954.42</b> deeper than on Monday&rsquo;s report: Andersen&rsquo;s 11/06/2026 deposit at the RBA sheet&rsquo;s unpaid work (her ruling, this Friday only), <b>$4,996.18</b> lower; the payroll checks <b>$643.68</b> above the estimate; check #2698 for <b>$5,000.00</b>, which cleared on 11/03/2026, was not in the plan, and who it paid is not on record yet; and <b>$314.56</b> of debit-card purchases.</p><p>As of the 11/04/2026 download, Capital One is <b>$889.41</b> under its <b>$65,000.00</b> limit counting pending charges. Alpha&rsquo;s CrossCountry mortgage stays out of the plan; no debit for it appears through 11/03/2026.</p></div>
+<h2>Systems &amp; tools</h2><div class="rule"></div>
+<details class="sysrow"><summary><div class="syswhat">Profit pages: two small jobs, then one Profits page for everything</div></summary><div class="syswhy">Both live behind the login. The Profits page (her approval) holds RBA, finished GC and small jobs, with charts. Next, by her rulings: a live money view of the 7 open jobs there, mockup first.</div></details>
+<details class="sysrow"><summary><div class="syswhat">Receipts tab in the dashboard; a plan for the QuickBooks bank feeds</div></summary><div class="syswhy">The tab compares the QuickBooks export with the bank: 31 card charges (<b>$4,002.75</b>) still need a receipt, with a message ready for each person. In QuickBooks, 968 Capital One and 1,327 Citizens lines were waiting for review; a plan to clear them and keep them current, independently checked, waits on her decisions.</div></details>
+<details class="sysrow"><summary><div class="syswhat">The plan&rsquo;s cleanup fix owed on Monday&rsquo;s report is in</div></summary><div class="syswhy">The cash plan reads a check number only from its own field, so a label can no longer drop an event; the end-of-day checks now run by themselves every morning.</div></details>
+<div class="note">As of the 11/04/2026 download, which carries every 11/03/2026 posting &middot; checking reconciled to the cent; Capital One tied on 11/03/2026</div>
+<footer>RFS Builders &middot; prepared by Hadassa</footer>
+</div></body></html>
